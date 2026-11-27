@@ -183,15 +183,15 @@ def main() -> int:
     if xfade > 0 and len(clips) > 1:
         chain, offset = "", 0.0
         for i in range(len(clips) - 1):
+            # offset = cumulative duration so far - (i+1) * xfade
+            offset += float(scenes[i].get("duration") or 3.0) - xfade
             if i == 0:
-                o = float(scenes[0].get("duration") or 3.0) - xfade
-                chain += (f"[0:v][1:v]xfade=transition=fade:duration={xfade}:"
-                          f"offset={o:.3f}[v1]")
-                offset = o
+                seg = (f"[0:v][1:v]xfade=transition=fade:duration={xfade}:"
+                       f"offset={offset:.3f}[v1]")
             else:
-                chain += (f"[v{i}][{i + 1}:v]xfade=transition=fade:duration={xfade}:"
-                          f"offset={offset:.3f}[v{i + 1}]")
-                offset += float(scenes[i].get("duration") or 3.0) - xfade
+                seg = (f"[v{i}][{i + 1}:v]xfade=transition=fade:duration={xfade}:"
+                       f"offset={offset:.3f}[v{i + 1}]")
+            chain = (chain + ";" if chain else "") + seg
         final = f"v{len(clips) - 1}"
         vf = f"{chain},[{final}]format=yuv420p[vout]"
         cmd = [ffmpeg, "-y"]
@@ -221,9 +221,10 @@ def main() -> int:
             chain = ""
             for i in range(len(audio_paths) - 1):
                 if i == 0:
-                    chain += f"[0:a][1:a]acrossfade=d={xfade}[a1]"
+                    seg = f"[0:a][1:a]acrossfade=d={xfade}[a1]"
                 else:
-                    chain += f"[a{i}][{i + 1}:a]acrossfade=d={xfade}[a{i + 1}]"
+                    seg = f"[a{i}][{i + 1}:a]acrossfade=d={xfade}[a{i + 1}]"
+                chain = (chain + ";" if chain else "") + seg
             an_label = f"a{len(audio_paths) - 1}"
             cmd = [ffmpeg, "-y"]
             for a in audio_paths:
