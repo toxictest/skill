@@ -1,0 +1,31 @@
+{
+  "title": "Sunrise Over the City",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "xfade": 0.5,
+  "scenes": [
+    {
+      "index": 1,
+      "name": "Hook",
+      "visual": "Cinematic sunrise over a calm city skyline, warm golden light",
+      "narration": "Have you ever watched a city wake up at sunrise?",
+      "image": null,
+      "title": "Sunrise Over the City",
+      "music": null,
+      "duration": 3.38,
+      "audio": "narration/scene_01.wav"
+    },
+    {
+      "index": 2,
+      "name": "The climb",
+      "visual": "Soft focus rooftops in morning haze",
+      "narration": "From the rooftops, the city rises one light at a time.",
+      "image": null,
+      "title": "One Light at a Time",
+      "music": null,
+      "duration": 4.08,
+      "audio": "narration/scene_02.wav"
+    }
+  ]
+}
