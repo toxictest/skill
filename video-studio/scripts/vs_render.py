@@ -96,10 +96,23 @@ def scene_image(sc: dict, images_dir: Path | None, w: int, h: int) -> Path:
 
 
 def anim_dir(sc: dict, images_dir: Path | None) -> Path | None:
-    """If the scene has a typewriter frame sequence, return that dir."""
+    """If the scene's slide has a typewriter frame sequence, return that dir.
+
+    Animation is keyed by the SLIDE number (scene_03.png -> anim_scene_03),
+    not the scene index, so we parse the image path to find the right one.
+    """
     if not images_dir:
         return None
-    p = images_dir / f"anim_scene_{sc['index']:02d}"
+    # derive slide number from the scene's image path (images/scene_03.png)
+    slide_num = None
+    if sc.get("image"):
+        m = re.search(r"scene_(\d+)", Path(sc["image"]).name)
+        if m:
+            slide_num = int(m.group(1))
+    if slide_num is None:
+        # fall back to scene index only if no explicit image
+        slide_num = sc["index"]
+    p = images_dir / f"anim_scene_{slide_num:02d}"
     if p.is_dir() and any(p.glob("frame_*.png")):
         return p
     return None
