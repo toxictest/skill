@@ -9,6 +9,9 @@ pillow
 imageio
 imageio-ffmpeg
 
+# video-studio narration: vs_tts.py --engine edge (free, no API key)
+edge-tts
+
 # docx_report.py
 python-docx
 

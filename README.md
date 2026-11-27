@@ -45,11 +45,28 @@ Bundled scripts: `office_validate.py`, `csv_profile.py`, `chart.py`,
 `soffice_convert.sh`, `concat_video.py`, `make_srt.py`, `youtube_seo.py`,
 `make_manifest.py`, `selftest.py`. Pura list aur playbook mapping `SKILL.md §4` me hai.
 
+## 🎬 video-studio — god-level video creation skill
+
+A second, dedicated skill in this repo: turns any video request into a **real,
+watchable MP4** end to end. Script → scene plan → AI images/generated footage →
+voiceover → edited video (Ken Burns motion, crossfades, on-screen titles,
+ducked music, -14 LUFS loudness) → QC → thumbnail + YouTube package.
+
+```bash
+cd video-studio
+python3 scripts/vs_selftest.py    # hermetic end-to-end pipeline test
+```
+
+Full workflow: `video-studio/SKILL.md` + `video-studio/playbooks/`
+(`pipeline.md`, `platforms.md` — 2026 footage/voice/music sourcing research,
+`publish.md`).
+
 ## Verify (before shipping any change)
 
 ```bash
-python3 scripts/selftest.py --fast        # full package smoke test
+python3 scripts/selftest.py --fast        # super-skill smoke test
 python3 scripts/selftest.py              # + video demo
+python3 video-studio/scripts/vs_selftest.py   # video-studio end-to-end
 python3 scripts/make_manifest.py --verify # tamper/partial-copy check
 ```
 
