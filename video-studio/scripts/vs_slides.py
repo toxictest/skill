@@ -16,6 +16,9 @@ Kinds:
                   "cells": "letters"}
   blocks   data: {"blocks": [{"head":"...","body":"...","color":"blue|green|red"}, ...]}
   summary  data: {"lines": [{"text":"...","color":"..."}, ...], "badge": "..."}
+  terminal data: {"title_bar": "bash — user@linux:~", "prompt": "user@linux:~$",
+                  "lines": [{"t":"cmd","text":"..."},{"t":"out","text":"..."},
+                            {"t":"err","text":"..."}]}  — dark terminal window mock
 
 Exit: 0 ok, 1 on bad spec.
 """
@@ -113,8 +116,45 @@ def draw_summary(d, data):
         d.text((W // 2, 1550), data["badge"], font=F(66), fill=RED, anchor="mm")
 
 
+MONO = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+
+
+def draw_terminal(d, data):
+    """Dark terminal window mock: title bar, prompt, typed command, output."""
+    # window frame (dark)
+    x0, y0, x1, y1 = 120, 470, W - 120, 1560
+    d.rounded_rectangle([x0, y0, x1, y1], radius=28, fill="#0f172a",
+                        outline="#334155", width=6)
+    # title bar
+    d.rounded_rectangle([x0, y0, x1, y0 + 90], radius=28, fill="#1e293b")
+    d.rectangle([x0, y0 + 45, x1, y0 + 90], fill="#1e293b")
+    for i, c in enumerate(["#f87171", "#fbbf24", "#4ade80"]):
+        d.ellipse([x0 + 40 + i * 70, y0 + 28, x0 + 76 + i * 70, y0 + 64], fill=c)
+    d.text((x0 + 260, y0 + 46), data.get("title_bar", "bash — user@linux:~"),
+           font=F(38, False), fill="#94a3b8", anchor="lm")
+    # body
+    y = y0 + 150
+    prompt = data.get("prompt", "user@linux:~$")
+    for line in data.get("lines", [])[:9]:
+        t = line.get("t", "out")
+        text = line.get("text", "")
+        if t == "cmd":
+            d.text((x0 + 50, y), prompt, font=ImageFont.truetype(MONO, 44),
+                   fill="#4ade80", anchor="lm")
+            d.text((x0 + 50 + d.textlength(prompt, font=ImageFont.truetype(MONO, 44)) + 20, y),
+                   text, font=ImageFont.truetype(MONO, 44), fill="#e2e8f0", anchor="lm")
+        elif t == "err":
+            d.text((x0 + 50, y), text, font=ImageFont.truetype(MONO, 44),
+                   fill="#f87171", anchor="lm")
+        else:
+            d.text((x0 + 50, y), text, font=ImageFont.truetype(MONO, 44),
+                   fill="#cbd5e1", anchor="lm")
+        y += 92
+
+
 KINDS = {"hook": draw_hook, "list": draw_list, "grid": draw_grid,
-         "blocks": draw_blocks, "summary": draw_summary}
+         "blocks": draw_blocks, "summary": draw_summary,
+         "terminal": draw_terminal}
 
 
 def main() -> int:

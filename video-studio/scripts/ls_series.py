@@ -260,6 +260,328 @@ CURRICULUM = [
 ]
 
 
+# title -> terminal demo lines: {"t": "cmd"|"out"|"err", "text": "..."}
+# shown on a dark terminal-window slide so viewers SEE the command + output
+DEMOS = {
+    # --- main lessons ---
+    "Linux Kya Hai": [
+        {"t": "cmd", "text": "uname -a"},
+        {"t": "out", "text": "Linux user 6.8.0-45-generic #45-Ubuntu"},
+        {"t": "out", "text": "x86_64 GNU/Linux"},
+        {"t": "cmd", "text": "cat /etc/os-release | head -2"},
+        {"t": "out", "text": "NAME=\"Ubuntu\" VERSION=\"24.04 LTS\""},
+    ],
+    "Terminal Pe Pehla Baar": [
+        {"t": "cmd", "text": "pwd"},
+        {"t": "out", "text": "/home/user"},
+        {"t": "cmd", "text": "ls"},
+        {"t": "out", "text": "Documents  Downloads  Music  notes.txt"},
+    ],
+    "Files Aur Directories": [
+        {"t": "cmd", "text": "mkdir project"},
+        {"t": "cmd", "text": "touch project/notes.txt"},
+        {"t": "cmd", "text": "ls project"},
+        {"t": "out", "text": "notes.txt"},
+    ],
+    "Permissions Ek Bar Samajh Lo": [
+        {"t": "cmd", "text": "ls -l notes.txt"},
+        {"t": "out", "text": "-rw-r--r-- 1 user user 1234 notes.txt"},
+        {"t": "out", "text": "r w -  r w -  r w -  → rwx rights"},
+    ],
+    "Files Padhna": [
+        {"t": "cmd", "text": "cat notes.txt"},
+        {"t": "out", "text": "Hello Linux! Aaj file padh rahe hain."},
+        {"t": "cmd", "text": "head -1 notes.txt"},
+        {"t": "out", "text": "Hello Linux!"},
+    ],
+    "Help Aur Docs": [
+        {"t": "cmd", "text": "ls --help | head -4"},
+        {"t": "out", "text": "Usage: ls [OPTION]... [FILE]..."},
+        {"t": "out", "text": "List information about the FILEs."},
+    ],
+    "Search Karo  Smartly": [
+        {"t": "cmd", "text": "grep -i linux notes.txt"},
+        {"t": "out", "text": "Hello Linux! ye line mili."},
+        {"t": "cmd", "text": "find . -name '*.txt'"},
+        {"t": "out", "text": "./notes.txt  ./readme.txt"},
+    ],
+    "Pipes Aur Redirection": [
+        {"t": "cmd", "text": "ls | wc -l"},
+        {"t": "out", "text": "3"},
+        {"t": "cmd", "text": "ls > files.txt"},
+        {"t": "out", "text": "(file save hui — khatam!)"},
+    ],
+    "Processes Ko Samajhna": [
+        {"t": "cmd", "text": "ps aux | head -3"},
+        {"t": "out", "text": "USER     PID %CPU COMMAND"},
+        {"t": "out", "text": "user     42  0.0 bash"},
+    ],
+    "Vim Shuru Karo": [
+        {"t": "cmd", "text": "vim notes.txt"},
+        {"t": "out", "text": "~"},
+        {"t": "out", "text": "~  notes.txt (INSERT mode)"},
+        {"t": "out", "text": ":wq  → save karke exit"},
+    ],
+    "Permissions Ka Deep Dive": [
+        {"t": "cmd", "text": "chmod 755 script.sh"},
+        {"t": "cmd", "text": "ls -l script.sh"},
+        {"t": "out", "text": "-rwxr-xr-x 1 user user script.sh"},
+    ],
+    "Copy, Move, Compare": [
+        {"t": "cmd", "text": "cp a.txt b.txt"},
+        {"t": "cmd", "text": "diff a.txt b.txt"},
+        {"t": "out", "text": "(koi output nahi — dono same hai!)"},
+    ],
+    "Bash Ki Shuruaat": [
+        {"t": "cmd", "text": "echo $HOME"},
+        {"t": "out", "text": "/home/user"},
+        {"t": "cmd", "text": "name=Linux; echo $name"},
+        {"t": "out", "text": "Linux"},
+    ],
+    "Conditionals IF Else": [
+        {"t": "cmd", "text": "if [ -f notes.txt ]; then echo \"file hai\"; fi"},
+        {"t": "out", "text": "file hai"},
+    ],
+    "Loops For Aur While": [
+        {"t": "cmd", "text": "for i in 1 2 3; do echo $i; done"},
+        {"t": "out", "text": "1"},
+        {"t": "out", "text": "2"},
+        {"t": "out", "text": "3"},
+    ],
+    "Functions Aur Scripts": [
+        {"t": "cmd", "text": "chmod +x script.sh"},
+        {"t": "cmd", "text": "./script.sh"},
+        {"t": "out", "text": "Hello from script!"},
+    ],
+    "Regex Ki Duniya": [
+        {"t": "cmd", "text": "grep -E '[0-9]+' notes.txt"},
+        {"t": "out", "text": "Line 42: backup done"},
+        {"t": "out", "text": "Line 7: log checked"},
+    ],
+    "Aapka Pehla Script": [
+        {"t": "cmd", "text": "./backup.sh"},
+        {"t": "out", "text": "[1/3] Backup start"},
+        {"t": "out", "text": "[2/3] Logs check"},
+        {"t": "out", "text": "Backup complete ✅"},
+    ],
+    "Users Aur Groups": [
+        {"t": "cmd", "text": "whoami"},
+        {"t": "out", "text": "user"},
+        {"t": "cmd", "text": "id"},
+        {"t": "out", "text": "uid=1000(user) gid=1000(user)"},
+    ],
+    "Packages Install Karo": [
+        {"t": "cmd", "text": "apt install htop"},
+        {"t": "out", "text": "Reading package lists... Done"},
+        {"t": "out", "text": "htop installed ✅"},
+    ],
+    "Services Aur systemd": [
+        {"t": "cmd", "text": "systemctl status ssh"},
+        {"t": "out", "text": "● ssh.service — OpenBSD Secure Shell"},
+        {"t": "out", "text": "Active: active (running)"},
+    ],
+    "Networking Basics": [
+        {"t": "cmd", "text": "ip addr | grep inet"},
+        {"t": "out", "text": "inet 192.168.1.10/24 brd 192.168.1.255"},
+        {"t": "cmd", "text": "ping -c 2 127.0.0.1"},
+        {"t": "out", "text": "2 packets transmitted, 2 received"},
+    ],
+    "Disks Aur Filesystems": [
+        {"t": "cmd", "text": "df -h"},
+        {"t": "out", "text": "Filesystem Size Used Avail Use%"},
+        {"t": "out", "text": "/dev/sda1  47G  20G  25G  46%"},
+    ],
+    "Logs Ko Read Karo": [
+        {"t": "cmd", "text": "journalctl -n 2"},
+        {"t": "out", "text": "Nov 27 09:15:01 systemd: Started Daily"},
+        {"t": "out", "text": "Nov 27 09:15:02 user: session opened"},
+    ],
+    "sed Aur awk": [
+        {"t": "cmd", "text": "sed 's/old/new/' file.txt"},
+        {"t": "out", "text": "Welcome new Linux!"},
+        {"t": "cmd", "text": "awk '{print $1}' file.txt"},
+        {"t": "out", "text": "Welcome"},
+    ],
+    "Cron Aur Scheduling": [
+        {"t": "cmd", "text": "crontab -l"},
+        {"t": "out", "text": "0 9 * * * /home/user/backup.sh"},
+        {"t": "out", "text": "roz 9 AM backup chalega"},
+    ],
+    "Shell One-liners": [
+        {"t": "cmd", "text": "cd /tmp && pwd"},
+        {"t": "out", "text": "/tmp"},
+        {"t": "cmd", "text": "ls -la | head -2"},
+        {"t": "out", "text": "total 42"},
+    ],
+    "Containers Ki Shuruaat": [
+        {"t": "cmd", "text": "docker ps"},
+        {"t": "out", "text": "CONTAINER ID  IMAGE     STATUS"},
+        {"t": "out", "text": "a1b2c3d4e5f6  nginx    Up 2 minutes"},
+    ],
+    "SSH Aur Remote Access": [
+        {"t": "cmd", "text": "ssh user@server-ip"},
+        {"t": "out", "text": "user@server-ip's password:"},
+        {"t": "out", "text": "Welcome to Ubuntu 24.04 (GNU/Linux)"},
+    ],
+    "Capstone: Mini Tool Banaye": [
+        {"t": "cmd", "text": "./mini-tool.sh"},
+        {"t": "out", "text": "[1/3] Backup done"},
+        {"t": "out", "text": "[2/3] Logs checked"},
+        {"t": "out", "text": "Mini tool ready ✅ Series complete!"},
+    ],
+    # --- command-of-the-day tips ---
+    "Command: ls": [
+        {"t": "cmd", "text": "ls -la"},
+        {"t": "out", "text": "total 24"},
+        {"t": "out", "text": "drwxr-xr-x 4 user user 4096 ."},
+        {"t": "out", "text": "-rw-r--r-- 1 user user 1234 notes.txt"},
+    ],
+    "Command: cd": [
+        {"t": "cmd", "text": "cd ~/Documents"},
+        {"t": "cmd", "text": "pwd"},
+        {"t": "out", "text": "/home/user/Documents"},
+    ],
+    "Command: mkdir": [
+        {"t": "cmd", "text": "mkdir my-folder"},
+        {"t": "cmd", "text": "ls"},
+        {"t": "out", "text": "my-folder"},
+    ],
+    "Command: chmod": [
+        {"t": "cmd", "text": "chmod 755 file.sh"},
+        {"t": "cmd", "text": "ls -l file.sh"},
+        {"t": "out", "text": "-rwxr-xr-x 1 user user file.sh"},
+    ],
+    "Command: tail": [
+        {"t": "cmd", "text": "tail -n 3 app.log"},
+        {"t": "out", "text": "09:15:01 INFO server started"},
+        {"t": "out", "text": "09:15:02 INFO listening on 8080"},
+        {"t": "out", "text": "09:15:03 INFO ready ✅"},
+    ],
+    "Command: man": [
+        {"t": "cmd", "text": "man ls | head -5"},
+        {"t": "out", "text": "NAME     ls — list directory contents"},
+        {"t": "out", "text": "SYNOPSIS ls [OPTION]... [FILE]..."},
+    ],
+    "Command: find": [
+        {"t": "cmd", "text": "find . -name '*.txt'"},
+        {"t": "out", "text": "./notes.txt"},
+        {"t": "out", "text": "./project/readme.txt"},
+    ],
+    "Command: grep | wc": [
+        {"t": "cmd", "text": "grep -c error app.log"},
+        {"t": "out", "text": "3"},
+    ],
+    "Command: top": [
+        {"t": "cmd", "text": "top -n 1 | head -5"},
+        {"t": "out", "text": "PID USER  %CPU COMMAND"},
+        {"t": "out", "text": "1 root   0.0 init"},
+        {"t": "out", "text": "42 user   1.2 bash"},
+    ],
+    "Command: vim": [
+        {"t": "cmd", "text": "vim notes.txt"},
+        {"t": "out", "text": "~  ~  ~"},
+        {"t": "out", "text": "-- INSERT --  → :wq se exit"},
+    ],
+    "Command: umask": [
+        {"t": "cmd", "text": "umask"},
+        {"t": "out", "text": "0022"},
+        {"t": "out", "text": "→ nayi files 644 default"},
+    ],
+    "Command: diff": [
+        {"t": "cmd", "text": "diff a.txt b.txt"},
+        {"t": "out", "text": "1c1"},
+        {"t": "out", "text": "< old line"},
+        {"t": "out", "text": "> new line"},
+    ],
+    "Command: echo": [
+        {"t": "cmd", "text": "echo Hello Linux"},
+        {"t": "out", "text": "Hello Linux"},
+    ],
+    "Command: test -f": [
+        {"t": "cmd", "text": "[ -f notes.txt ] && echo yes"},
+        {"t": "out", "text": "yes"},
+        {"t": "cmd", "text": "[ -f missing.txt ] && echo yes"},
+        {"t": "out", "text": "( kuch nahi — condition false)"},
+    ],
+    "Command: for": [
+        {"t": "cmd", "text": "for f in *.txt; do echo $f; done"},
+        {"t": "out", "text": "notes.txt"},
+        {"t": "out", "text": "readme.txt"},
+    ],
+    "Command: chmod +x": [
+        {"t": "cmd", "text": "chmod +x myscript.sh"},
+        {"t": "cmd", "text": "./myscript.sh"},
+        {"t": "out", "text": "Script chal gaya! ✅"},
+    ],
+    "Command: grep -E": [
+        {"t": "cmd", "text": "grep -E '[0-9]+' app.log"},
+        {"t": "out", "text": "log1: started"},
+        {"t": "out", "text": "log42: ready"},
+    ],
+    "Command: crontab": [
+        {"t": "cmd", "text": "crontab -l"},
+        {"t": "out", "text": "0 9 * * * /home/user/backup.sh"},
+    ],
+    "Command: sudo": [
+        {"t": "cmd", "text": "sudo whoami"},
+        {"t": "out", "text": "root"},
+        {"t": "out", "text": "→ admin powers, sirf jarurat pe"},
+    ],
+    "Command: apt": [
+        {"t": "cmd", "text": "apt search htop"},
+        {"t": "out", "text": "htop — interactive process viewer"},
+    ],
+    "Command: systemctl": [
+        {"t": "cmd", "text": "systemctl is-active ssh"},
+        {"t": "out", "text": "active"},
+    ],
+    "Command: curl": [
+        {"t": "cmd", "text": "curl -s https://example.com | head -2"},
+        {"t": "out", "text": "<!doctype html>"},
+        {"t": "out", "text": "<html>"},
+    ],
+    "Command: du": [
+        {"t": "cmd", "text": "du -sh /var/log"},
+        {"t": "out", "text": "12M	/var/log"},
+    ],
+    "Command: journalctl": [
+        {"t": "cmd", "text": "journalctl -n 2 --no-pager"},
+        {"t": "out", "text": "Nov 27 09:15:01 systemd: Started Daily"},
+        {"t": "out", "text": "Nov 27 09:15:02 sudo: session open"},
+    ],
+    "Command: sed": [
+        {"t": "cmd", "text": "sed 's/old/new/' file.txt"},
+        {"t": "out", "text": "Welcome new Linux!"},
+    ],
+    "Command: at": [
+        {"t": "cmd", "text": "echo 'backup' | at 02:00"},
+        {"t": "out", "text": "job 1 at Thu Nov 27 02:00:00 2026"},
+    ],
+    "Command: history": [
+        {"t": "cmd", "text": "history | tail -3"},
+        {"t": "out", "text": "101 ls -la"},
+        {"t": "out", "text": "102 cd ~/Documents"},
+        {"t": "out", "text": "103 vim notes.txt"},
+    ],
+    "Command: docker": [
+        {"t": "cmd", "text": "docker images"},
+        {"t": "out", "text": "REPOSITORY TAG  IMAGE ID  SIZE"},
+        {"t": "out", "text": "nginx     latest  a1b2c3d4  190MB"},
+    ],
+    "Command: ssh": [
+        {"t": "cmd", "text": "ssh user@server-ip"},
+        {"t": "out", "text": "user@server-ip's password:"},
+        {"t": "out", "text": "→ key-based auth = no password"},
+    ],
+    "Command: ls -R": [
+        {"t": "cmd", "text": "ls -R ~ | head -8"},
+        {"t": "out", "text": ".:"},
+        {"t": "out", "text": "Documents  Downloads  notes.txt"},
+        {"t": "out", "text": "./Documents:"},
+    ],
+}
+
+
 def scaffold_episode(out_dir: Path, ep_no: int, day: int, phase: str,
                      main: dict, tip: dict) -> None:
     d = out_dir / f"episode_{ep_no:03d}"
@@ -271,24 +593,30 @@ def scaffold_episode(out_dir: Path, ep_no: int, day: int, phase: str,
     # build slides spec
     slides = [{"kind": "hook", "title": data["title"], "sub": "Linux series — day %d" % day,
                "data": {"badges": badges, "tagline": data["hook"]}}]
+    demo = DEMOS.get(data["title"])
     if kind == "main":
         slides.append({"kind": "list", "title": "Points", "sub": None,
                        "data": {"items": [f"{i+1}. {p}" for i, p in enumerate(data["points"])]}})
+        if demo:
+            slides.append({"kind": "terminal", "title": "Terminal Mein Dekho", "sub": None,
+                           "data": {"title_bar": "bash — user@linux:~",
+                                    "prompt": "user@linux:~$", "lines": demo}})
         slides.append({"kind": "summary", "title": "Yaad Rakhiye", "sub": None,
                        "data": {"lines": [{"text": p, "color": "blue"} for p in data["points"][:2]],
                                 "badge": "agli class mein milte hain"}})
     else:
         slides.append({"kind": "blocks", "title": "Command of the Day", "sub": None,
                        "data": {"blocks": [{"head": data["cmd"], "body": data["note"], "color": "green"}]}})
+        if demo:
+            slides.append({"kind": "terminal", "title": "Terminal Mein Dekho", "sub": None,
+                           "data": {"title_bar": "bash — user@linux:~",
+                                    "prompt": "user@linux:~$", "lines": demo}})
         slides.append({"kind": "summary", "title": "Tip", "sub": None,
                        "data": {"lines": [{"text": data["note"], "color": "green"}],
                                 "badge": "try it \u2713"}})
     (d / "slides_spec.json").write_text(
         json.dumps({"slides": slides}, indent=2, ensure_ascii=False), encoding="utf-8")
     # script.md in vs_plan format
-    narration_main = data["hook"] + " " + " ".join(
-        f"{i+1}. {p}" for i, p in enumerate(data.get("points", []))) \
-        if kind == "main" else data["hook"] + f" {data['cmd']} — {data['note']}."
     lines = [f"# Video: {data['title']}", "",
              f"## Scene 1 — Hook",
              f"| Visual    | Teacher whiteboard: title {data['title']} |",
@@ -300,10 +628,39 @@ def scaffold_episode(out_dir: Path, ep_no: int, day: int, phase: str,
                       f"| Visual    | Teacher whiteboard: {p[:60]} |",
                       f"| Narration | {p} |",
                       f"| Title     | {p[:28]} |", ""]
-        lines += [f"## Scene {len(data['points'])+2} — Wrap up",
+        if demo:
+            nxt = len(data["points"]) + 2
+            cmds = [ln["text"] for ln in demo if ln.get("t") == "cmd"]
+            demo_desc = ", ".join(cmds[:2]) if cmds else "command"
+            lines += [f"## Scene {nxt} — Terminal Mein Dekho",
+                      f"| Visual    | Terminal window: {demo_desc} chalta hua, output dikh raha hai |",
+                      f"| Narration | Ab terminal mein dekhte hain — {demo_desc} chalta hai, output aapke samne hai. |",
+                      f"| Title     | Terminal Mein Dekho |", ""]
+        lines += [f"## Scene {len(data['points'])+3 if demo else len(data['points'])+2} — Wrap up",
                   f"| Visual    | Teacher whiteboard: summary |",
                   f"| Narration | Agli class mein milte hain. |",
                   f"| Title     | Agli Class Mein |", ""]
+    else:
+        lines += [f"## Scene 2 — Command of the Day",
+                  f"| Visual    | Teacher whiteboard: {data['cmd']} with note |",
+                  f"| Narration | {data['cmd']} — {data['note']}. |",
+                  f"| Title     | {data['cmd']} |", ""]
+        if demo:
+            cmds = [ln["text"] for ln in demo if ln.get("t") == "cmd"]
+            demo_desc = ", ".join(cmds[:2]) if cmds else data["cmd"]
+            lines += [f"## Scene 3 — Terminal Mein Dekho",
+                      f"| Visual    | Terminal window: {demo_desc} chalta hua, output dikh raha hai |",
+                      f"| Narration | Ab terminal mein dekhte hain — {demo_desc} chalta hai, output aapke samne hai. |",
+                      f"| Title     | Terminal Mein Dekho |", ""]
+            lines += [f"## Scene 4 — Tip",
+                      f"| Visual    | Teacher whiteboard: tip card |",
+                      f"| Narration | Aaj hi terminal kholke try kar lo. Agli class mein milte hain! |",
+                      f"| Title     | Try It |", ""]
+        else:
+            lines += [f"## Scene 3 — Tip",
+                      f"| Visual    | Teacher whiteboard: tip card |",
+                      f"| Narration | Aaj hi terminal kholke try kar lo. Agli class mein milte hain! |",
+                      f"| Title     | Try It |", ""]
     (d / "script.md").write_text("\n".join(lines), encoding="utf-8")
     return
 
