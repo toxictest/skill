@@ -37,3 +37,11 @@ before anything is posted.
 - Reels with sound outperform silent ones — a Reel with no audio track is
   a warning, not a pass.
 - Nothing gets published by the skill — the user posts.
+
+## Arena mode (Arena.ai Agent Mode)
+
+This skill runs on Arena.ai too — no slash command needed. The agent
+auto-routes to this SKILL.md from the task, runs the bundled script with
+`bash`, and delivers outputs (caption file, cover image, plan) via
+`present_file`. No posting happens here — the skill writes, the user
+publishes on Instagram.

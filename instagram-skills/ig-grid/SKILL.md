@@ -34,3 +34,11 @@ one story before deciding to follow — cohesion is the whole game.
 - Alt text on every post — accessibility first, reach second.
 - If the user gives no ideas, draft 3–5 from their niche first, then run
   the planner — never deliver an empty grid.
+
+## Arena mode (Arena.ai Agent Mode)
+
+This skill runs on Arena.ai too — no slash command needed. The agent
+auto-routes to this SKILL.md from the task, runs the bundled script with
+`bash`, and delivers outputs (caption file, cover image, plan) via
+`present_file`. No posting happens here — the skill writes, the user
+publishes on Instagram.

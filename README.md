@@ -21,6 +21,10 @@ brand/            ← trilingual brand kit + SVG logos
 
 ## Install / deps
 
+**Arena.ai ke liye koi install nahi chahiye** — repo ko workspace me rakho,
+skills khud route karengi (purri routing aur tool mapping: `USAGE-ARENA.md`).
+Claude Code / plugin / runtime install ke options: `INSTALL.md`.
+
 Most scripts **Python stdlib only** pe chal jaate hain. Media/office/chart
 helpers ke liye optional deps:
 

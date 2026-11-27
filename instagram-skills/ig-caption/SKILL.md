@@ -34,3 +34,11 @@ fold — if it does not earn the second line, nothing below it matters.
   youtube-skills voice.md convention — same idea for IG).
 - No engagement-bait ("like for like", "follow for follow") — the
   script's banned list is the floor, not the ceiling.
+
+## Arena mode (Arena.ai Agent Mode)
+
+This skill runs on Arena.ai too — no slash command needed. The agent
+auto-routes to this SKILL.md from the task, runs the bundled script with
+`bash`, and delivers outputs (caption file, cover image, plan) via
+`present_file`. No posting happens here — the skill writes, the user
+publishes on Instagram.

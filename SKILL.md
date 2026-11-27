@@ -183,3 +183,13 @@ Every task ends with:
 2. Short chat summary in the user's language: what, why, assumptions.
 3. Verification evidence (test run, citation list, parse check).
 4. Optional next steps (max 3, concrete).
+
+## Arena mode (Arena.ai Agent Mode)
+
+This skill (and the whole repo) is Arena-native. No install, no slash
+commands: the repo lives in the workspace, the agent auto-routes to the
+right `SKILL.md` from the task, and every pack executes with Arena tools.
+This router handles general tasks; `video-studio/` handles video creation,
+`youtube-skills/` + `instagram-skills/` handle channel/social work. Voice
+profile for any writing pack: workspace `voice.md`. Full routing table,
+tool mapping and copy-paste examples: `USAGE-ARENA.md`.

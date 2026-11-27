@@ -166,3 +166,11 @@ Every task ends with:
    where each asset came from, assumptions.
 3. Verification evidence: QC.md summary line + render output line.
 4. Optional next steps (max 3, concrete).
+
+## Arena mode (Arena.ai Agent Mode)
+
+This skill is Arena-native: the agent auto-routes to this SKILL.md, uses
+native tools (`generate_image`, `add_voice` + `generate_speech`,
+`start_process` for long renders) and delivers via `present_file`. Long
+renders run as background processes — never block the turn. See
+`../USAGE-ARENA.md` for the full Arena walkthrough.

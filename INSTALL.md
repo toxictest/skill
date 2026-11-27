@@ -1,5 +1,10 @@
 # Install — all skill packs in this repo
 
+**Arena.ai first?** On Arena.ai Agent Mode there is nothing to install:
+put this repo in the workspace, and every skill auto-routes from the task
+itself (see `USAGE-ARENA.md` for the routing table and tool mapping). The
+`.claude/skills/` copies below are only for Claude Code.
+
 Repo layout:
 
 | Path | What |

@@ -44,3 +44,12 @@ goes wrong.
 
 Nothing here publishes. This skill writes and you publish. Every output ends in a block the user
 copies, and the last line of every run is the question: **ship it, or change it?**
+
+## Arena mode (Arena.ai Agent Mode)
+
+This skill runs on Arena.ai too — no slash command needed. The agent
+auto-routes to this SKILL.md from the task, runs the bundled scripts with
+`bash`, and delivers files via `present_file`. Voice profile: read
+`<repo-root>/voice.md` if present (fallback `.claude/youtube/voice.md`); if
+missing, ask for three of the user's own videos and infer it. Nothing
+publishes — the skill writes, the user uploads.
