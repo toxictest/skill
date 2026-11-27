@@ -616,16 +616,21 @@ def scaffold_episode(out_dir: Path, ep_no: int, day: int, phase: str,
                                 "badge": "try it \u2713"}})
     (d / "slides_spec.json").write_text(
         json.dumps({"slides": slides}, indent=2, ensure_ascii=False), encoding="utf-8")
-    # script.md in vs_plan format
+    # script.md in vs_plan format — explicit Image rows map each scene to its slide
+    n_slides = len(slides)
+    slide_img = {i: f"images/scene_{i:02d}.png" for i in range(1, n_slides + 1)}
     lines = [f"# Video: {data['title']}", "",
              f"## Scene 1 — Hook",
              f"| Visual    | Teacher whiteboard: title {data['title']} |",
+             f"| Image     | {slide_img[1]} |",
              f"| Narration | {data['hook']} |",
              f"| Title     | {data['title']} |", ""]
     if kind == "main":
+        list_img = slide_img[2]  # list slide shared by all point scenes
         for i, p in enumerate(data["points"], 2):
             lines += [f"## Scene {i} — Point {i-1}",
                       f"| Visual    | Teacher whiteboard: {p[:60]} |",
+                      f"| Image     | {list_img} |",
                       f"| Narration | {p} |",
                       f"| Title     | {p[:28]} |", ""]
         if demo:
@@ -634,15 +639,23 @@ def scaffold_episode(out_dir: Path, ep_no: int, day: int, phase: str,
             demo_desc = ", ".join(cmds[:2]) if cmds else "command"
             lines += [f"## Scene {nxt} — Terminal Mein Dekho",
                       f"| Visual    | Terminal window: {demo_desc} chalta hua, output dikh raha hai |",
+                      f"| Image     | {slide_img[3]} |",
                       f"| Narration | Ab terminal mein dekhte hain — {demo_desc} chalta hai, output aapke samne hai. |",
                       f"| Title     | Terminal Mein Dekho |", ""]
-        lines += [f"## Scene {len(data['points'])+3 if demo else len(data['points'])+2} — Wrap up",
+            summary_img = slide_img[n_slides]
+            wrap_n = nxt + 1
+        else:
+            summary_img = slide_img[3]
+            wrap_n = nxt
+        lines += [f"## Scene {wrap_n} — Wrap up",
                   f"| Visual    | Teacher whiteboard: summary |",
+                  f"| Image     | {summary_img} |",
                   f"| Narration | Agli class mein milte hain. |",
                   f"| Title     | Agli Class Mein |", ""]
     else:
         lines += [f"## Scene 2 — Command of the Day",
                   f"| Visual    | Teacher whiteboard: {data['cmd']} with note |",
+                  f"| Image     | {slide_img[2]} |",
                   f"| Narration | {data['cmd']} — {data['note']}. |",
                   f"| Title     | {data['cmd']} |", ""]
         if demo:
@@ -650,15 +663,19 @@ def scaffold_episode(out_dir: Path, ep_no: int, day: int, phase: str,
             demo_desc = ", ".join(cmds[:2]) if cmds else data["cmd"]
             lines += [f"## Scene 3 — Terminal Mein Dekho",
                       f"| Visual    | Terminal window: {demo_desc} chalta hua, output dikh raha hai |",
+                      f"| Image     | {slide_img[3]} |",
                       f"| Narration | Ab terminal mein dekhte hain — {demo_desc} chalta hai, output aapke samne hai. |",
                       f"| Title     | Terminal Mein Dekho |", ""]
+            tip_img = slide_img[n_slides]
             lines += [f"## Scene 4 — Tip",
                       f"| Visual    | Teacher whiteboard: tip card |",
+                      f"| Image     | {tip_img} |",
                       f"| Narration | Aaj hi terminal kholke try kar lo. Agli class mein milte hain! |",
                       f"| Title     | Try It |", ""]
         else:
             lines += [f"## Scene 3 — Tip",
                       f"| Visual    | Teacher whiteboard: tip card |",
+                      f"| Image     | {slide_img[3]} |",
                       f"| Narration | Aaj hi terminal kholke try kar lo. Agli class mein milte hain! |",
                       f"| Title     | Try It |", ""]
     (d / "script.md").write_text("\n".join(lines), encoding="utf-8")

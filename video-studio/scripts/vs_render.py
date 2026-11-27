@@ -95,37 +95,63 @@ def scene_image(sc: dict, images_dir: Path | None, w: int, h: int) -> Path:
     return None  # caller makes a placeholder
 
 
+def anim_dir(sc: dict, images_dir: Path | None) -> Path | None:
+    """If the scene has a typewriter frame sequence, return that dir."""
+    if not images_dir:
+        return None
+    p = images_dir / f"anim_scene_{sc['index']:02d}"
+    if p.is_dir() and any(p.glob("frame_*.png")):
+        return p
+    return None
+
+
 def render_scene(ffmpeg: str, img: Path, out: Path, sc: dict, w: int, h: int,
-                 fps: int, font: str | None) -> int:
+                 fps: int, font: str | None, frames_dir: Path | None = None) -> int:
     dur = float(sc.get("duration") or 3.0)
     frames = max(int(dur * fps), 2)
-    # zoompan needs a bigger input to zoom into
-    vf = [f"scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase",
-          f"crop={w * 2}:{h * 2}"]
-    direction = "in" if sc["index"] % 2 == 1 else "out"
-    if direction == "in":
-        zoom = f"min(zoom+0.0006,1.12)"
-    else:
-        zoom = "if(eq(on,0),1.12,max(zoom-0.0006,1.0))"
-    vf.append(f"zoompan=z='{zoom}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-              f":d={frames}:s={w}x{h}:fps={fps}")
     text = sc.get("title") or sc.get("name")
+    txt_file = None
     if text and font:
         txt_file = out.with_suffix(".txt")
         txt_file.write_text(text, encoding="utf-8")
-        box = ",".join(str(x) for x in (w // 2, h - 120, w // 2, h - 170))
-        vf.append(
-            f"drawtext=fontfile='{font}':textfile='{txt_file}':"
-            f"x=(w-text_w)/2:y=h-th-90:fontsize=58:fontcolor=white:"
-            f"box=1:boxcolor=black@0.5:boxborderw=24:"
-            f"alpha='if(lt(t,0.35),0,min(1,max(0,(t-0.35)/0.3)))':"
-            f"enable='between(t,0.35,{dur - 0.5})'")
-    vf_str = ",".join(vf)
-    cmd = [ffmpeg, "-y", "-i", str(img),
-           "-vf", vf_str, "-an", "-c:v", "libx264", "-preset", "veryfast",
-           "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(fps), str(out)]
-    r = subprocess.run(cmd, capture_output=True, text=True)
-    if text and font:
+    if frames_dir:
+        # typewriter animation: stretch the frame sequence to the scene duration
+        frs = sorted(frames_dir.glob("frame_*.png"))
+        if not frs:
+            print(f"scene {sc['index']}: anim dir empty", file=sys.stderr)
+            return 1
+        in_fps = max(10.0, min(30.0, len(frs) / max(dur, 0.5)))
+        vf = [f"scale={w}:{h}", f"fps={fps}", "format=yuv420p"]
+        cmd = [ffmpeg, "-y", "-framerate", f"{in_fps:.3f}",
+               "-i", str(frames_dir / "frame_%03d.png"),
+               "-vf", ",".join(vf), "-an", "-c:v", "libx264", "-preset",
+               "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(fps),
+               "-t", f"{dur:.3f}", str(out)]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+    else:
+        # zoompan needs a bigger input to zoom into
+        vf = [f"scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase",
+              f"crop={w * 2}:{h * 2}"]
+        direction = "in" if sc["index"] % 2 == 1 else "out"
+        if direction == "in":
+            zoom = f"min(zoom+0.0006,1.12)"
+        else:
+            zoom = "if(eq(on,0),1.12,max(zoom-0.0006,1.0))"
+        vf.append(f"zoompan=z='{zoom}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+                  f":d={frames}:s={w}x{h}:fps={fps}")
+        vf_str = ",".join(vf)
+        if text and font:
+            box = ",".join(str(x) for x in (w // 2, h - 120, w // 2, h - 170))
+            vf_str += (f",drawtext=fontfile='{font}':textfile='{txt_file}':"
+                       f"x=(w-text_w)/2:y=h-th-90:fontsize=58:fontcolor=white:"
+                       f"box=1:boxcolor=black@0.5:boxborderw=24:"
+                       f"alpha='if(lt(t,0.35),0,min(1,max(0,(t-0.35)/0.3)))':"
+                       f"enable='between(t,0.35,{dur - 0.5})'")
+        cmd = [ffmpeg, "-y", "-i", str(img),
+               "-vf", vf_str, "-an", "-c:v", "libx264", "-preset", "veryfast",
+               "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(fps), str(out)]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+    if txt_file:
         txt_file.unlink(missing_ok=True)
     if r.returncode != 0 or not out.exists():
         print(f"scene {sc['index']} render failed:\n{(r.stdout + r.stderr)[-400:]}",
@@ -175,8 +201,12 @@ def main() -> int:
                                    sc.get("visual", ""), w, h)
             print(f"scene {sc['index']}: no image found → placeholder card")
         out = work / f"clip_{sc['index']:02d}.mp4"
-        if render_scene(ffmpeg, img, out, sc, w, h, fps, font) != 0:
+        fr_dir = anim_dir(sc, images_dir)
+        if render_scene(ffmpeg, img, out, sc, w, h, fps, font,
+                        frames_dir=fr_dir) != 0:
             return 1
+        if fr_dir:
+            print(f"scene {sc['index']}: typewriter animation ({fr_dir.name})")
         clips.append(out)
 
     # 2) video: chained crossfades (or concat demuxer when xfade == 0)
@@ -258,8 +288,9 @@ def main() -> int:
                 "[1:a]volume=1.0[n];[2:a]volume=" + f"{args.bgm_volume},"
                 "afade=t=in:st=0:d=1.5,afade=t=out:st={TOTAL}:d=2[bg];"
                 "[n][bg]amix=inputs=2:duration=first:dropout_transition=0,"
-                "loudnorm=I=-14:TP=-1:LRA=11[aout]".replace("{TOTAL}",
-                                                           f"{total_v - 2:.1f}"),
+                "loudnorm=I=-14:TP=-1:LRA=11,volume=0.6dB,"
+                "alimiter=limit=0.95[aout]".replace("{TOTAL}",
+                                                    f"{total_v - 2:.1f}"),
                 "-map", "0:v", "-map", "[aout]",
                 "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
                 "-movflags", "+faststart", str(out)]
