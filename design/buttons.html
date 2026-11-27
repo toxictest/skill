@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>super-skill — Button Lab</title>
+<style>
+  :root{
+    --violet:#7c3aed; --violet-d:#6d28d9; --cyan:#22d3ee; --ink:#0f1115;
+    --panel:#171a21; --steel:#2a2f3a; --mist:#e8eaf0; --slate:#9aa0ae;
+    --green:#34d399; --red:#f87171; --amber:#fbbf24;
+    --grad:linear-gradient(135deg,#7c3aed,#22d3ee);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--ink);color:var(--mist);line-height:1.6;padding:2.2rem 1.25rem 3rem;
+    background-image:
+      radial-gradient(ellipse 55% 35% at 90% -8%,rgba(124,58,237,.22),transparent),
+      radial-gradient(ellipse 40% 30% at 0% 110%,rgba(34,211,238,.10),transparent);
+  }
+  .wrap{max-width:1000px;margin:0 auto}
+  header{margin-bottom:1.8rem}
+  h1{font-size:2.2rem;letter-spacing:-.02em}
+  h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--slate);font-size:.95rem}
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--slate);
+     margin:1.9rem 0 .9rem}
+  h2 b{color:var(--cyan)}
+  .grid{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .cell{background:var(--panel);border:1px solid var(--steel);border-radius:14px;
+        padding:1.4rem 1.2rem 1.1rem;display:flex;flex-direction:column;gap:.9rem;
+        align-items:flex-start;position:relative;overflow:hidden}
+  .cell .meta{font-size:.7rem;color:var(--slate);font-family:ui-monospace,Menlo,monospace;
+              letter-spacing:.05em}
+  .cell .meta b{color:var(--mist);display:block;font-size:.85rem;font-family:inherit;
+                letter-spacing:0;margin-bottom:.15rem}
+  .row{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
+  .full{grid-column:1/-1}
+
+  /* ============ BUTTON BASE ============ */
+  .btn{
+    position:relative;overflow:hidden;cursor:pointer;border:none;outline:none;
+    font-family:inherit;font-size:.9rem;font-weight:600;padding:.62rem 1.35rem;
+    border-radius:10px;transition:transform .15s,box-shadow .2s,background .2s,color .2s;
+    display:inline-flex;align-items:center;gap:.5rem;user-select:none;
+  }
+  .btn:active{transform:scale(.96)!important}
+
+  /* 1 · gradient primary */
+  .b-grad{background:var(--grad);color:#fff;box-shadow:0 4px 18px rgba(124,58,237,.35)}
+  .b-grad:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(124,58,237,.5)}
+
+  /* 2 · solid */
+  .b-solid{background:var(--violet);color:#fff}
+  .b-solid:hover{background:var(--violet-d);transform:translateY(-2px)}
+
+  /* 3 · outline */
+  .b-outline{background:transparent;color:var(--cyan);border:1.5px solid var(--cyan)}
+  .b-outline:hover{background:rgba(34,211,238,.12);transform:translateY(-2px)}
+
+  /* 4 · ghost */
+  .b-ghost{background:transparent;color:var(--slate)}
+  .b-ghost:hover{background:rgba(255,255,255,.07);color:var(--mist)}
+
+  /* 5 · neon glow */
+  .b-neon{background:#0b0d12;color:#c4b5fd;border:1.5px solid var(--violet);
+          box-shadow:0 0 12px rgba(124,58,237,.35),inset 0 0 8px rgba(124,58,237,.15)}
+  .b-neon:hover{box-shadow:0 0 22px rgba(124,58,237,.7),inset 0 0 12px rgba(124,58,237,.3);
+                color:#e9d5ff;transform:translateY(-2px)}
+
+  /* 6 · glass */
+  .b-glass{background:rgba(255,255,255,.07);color:var(--mist);
+           backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15)}
+  .b-glass:hover{background:rgba(255,255,255,.13);transform:translateY(-2px)}
+
+  /* 7 · neumorphic */
+  .b-neu{background:#1b1f28;color:var(--slate);border-radius:12px;
+         box-shadow:5px 5px 12px #0a0c10,-5px -5px 12px #232838}
+  .b-neu:hover{color:var(--mist);
+               box-shadow:3px 3px 8px #0a0c10,-3px -3px 8px #232838;transform:translateY(-1px)}
+  .b-neu:active{box-shadow:inset 3px 3px 8px #0a0c10,inset -3px -3px 8px #232838}
+
+  /* 8 · shine sweep */
+  .b-shine{background:var(--violet);color:#fff}
+  .b-shine::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-20deg);transition:left .45s}
+  .b-shine:hover::after{left:130%}
+
+  /* 9 · gradient border */
+  .b-gborder{background:linear-gradient(#171a21,#171a21) padding-box,var(--grad) border-box;
+             border:1.5px solid transparent;color:var(--mist)}
+  .b-gborder:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(34,211,238,.3)}
+
+  /* 10 · danger */
+  .b-danger{background:linear-gradient(135deg,#ef4444,#f97316);color:#fff;
+            box-shadow:0 4px 16px rgba(239,68,68,.35)}
+  .b-danger:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(239,68,68,.5)}
+
+  /* 11 · success */
+  .b-success{background:linear-gradient(135deg,#10b981,#34d399);color:#052e1e}
+  .b-success:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(52,211,153,.4)}
+
+  /* 12 · pill */
+  .b-pill{background:var(--grad);color:#fff;border-radius:999px;padding:.6rem 1.6rem}
+  .b-pill:hover{transform:translateY(-2px) scale(1.03)}
+
+  /* 13 · icon-only */
+  .b-icon{width:46px;height:46px;padding:0;justify-content:center;border-radius:12px;
+          background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.5);color:#c4b5fd}
+  .b-icon:hover{background:rgba(124,58,237,.3);transform:translateY(-2px)}
+
+  /* 14 · sizes */
+  .b-sm{font-size:.75rem;padding:.4rem .9rem;border-radius:8px}
+  .b-lg{font-size:1.05rem;padding:.8rem 1.9rem;border-radius:12px}
+
+  /* 15 · disabled */
+  .b-disabled{background:#232838;color:#5b6270;cursor:not-allowed;opacity:.75}
+  .b-disabled:hover{transform:none;box-shadow:none}
+
+  /* ============ INTERACTIVE ============ */
+  /* ripple */
+  .ripple{background:var(--grad);color:#fff;box-shadow:0 4px 18px rgba(124,58,237,.35)}
+  .rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);
+      transform:scale(0);animation:rp .55s linear;pointer-events:none}
+  @keyframes rp{to{transform:scale(4);opacity:0}}
+
+  /* loading → success */
+  .b-load{background:var(--violet);color:#fff;min-width:170px;justify-content:center}
+  .b-load .spin{width:16px;height:16px;border:2.5px solid rgba(255,255,255,.35);
+    border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;display:none}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .b-load.loading .spin{display:inline-block}
+  .b-load.loading .lbl{opacity:.75}
+  .b-load.done{background:linear-gradient(135deg,#10b981,#34d399);color:#052e1e}
+
+  /* toggle switch */
+  .sw{position:relative;display:inline-block;width:56px;height:30px}
+  .sw input{opacity:0;width:0;height:0}
+  .sw .track{position:absolute;inset:0;background:#232838;border-radius:999px;
+    border:1px solid var(--steel);transition:.25s;cursor:pointer}
+  .sw .track::before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;
+    background:var(--slate);border-radius:50%;transition:.25s}
+  .sw input:checked + .track{background:rgba(124,58,237,.35);border-color:var(--violet)}
+  .sw input:checked + .track::before{transform:translateX(26px);background:var(--grad)}
+
+  /* segmented */
+  .seg{display:inline-flex;background:#10131a;border:1px solid var(--steel);
+       border-radius:10px;padding:3px;gap:2px}
+  .seg button{background:none;border:none;color:var(--slate);font-family:inherit;
+    font-size:.82rem;font-weight:600;padding:.42rem 1rem;border-radius:8px;cursor:pointer;
+    transition:.18s}
+  .seg button.on{background:var(--grad);color:#fff}
+  .seg button:not(.on):hover{color:var(--mist)}
+
+  /* copy chip */
+  .copy{font-family:ui-monospace,Menlo,monospace;font-size:.75rem;background:#10131a;
+    border:1px solid var(--steel);color:var(--cyan);padding:.3rem .65rem;border-radius:7px;
+    cursor:pointer;transition:.15s}
+  .copy:hover{border-color:var(--cyan)}
+  .copy.ok{color:var(--green);border-color:var(--green)}
+
+  footer{margin-top:2.2rem;text-align:center;color:var(--slate);font-size:.78rem}
+  code{font-family:ui-monospace,Menlo,monospace;background:#10131a;border:1px solid var(--steel);
+       padding:.1rem .45rem;border-radius:6px;color:var(--cyan);font-size:.84em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Button <span>Lab</span></h1>
+  <p class="sub">16 styles · live ripple, loading, toggle, segmented · brand palette · hover &amp; click karke dekho →</p>
+</header>
+
+<h2>🎨 <b>Core styles</b> — hover press dono try karo</h2>
+<div class="grid">
+  <div class="cell">
+    <div class="meta"><b>Gradient Primary</b>lift + violet glow on hover</div>
+    <button class="btn b-grad">Get started</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Solid</b>flat violet, darken + lift</div>
+    <button class="btn b-solid">Continue</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Outline</b>cyan border, soft fill on hover</div>
+    <button class="btn b-outline">Learn more</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Ghost</b>invisible until hover</div>
+    <button class="btn b-ghost">Skip</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Neon Glow</b>double shadow bloom</div>
+    <button class="btn b-neon">Activate</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Glass</b>blur + translucent border</div>
+    <button class="btn b-glass">Preview</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Neumorphic</b>soft extruded, inset on press</div>
+    <button class="btn b-neu">Press me</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Shine Sweep</b>light bar slides on hover</div>
+    <button class="btn b-shine">Premium</button>
+  </div>
+</div>
+
+<h2>✨ <b>Special effects</b></h2>
+<div class="grid">
+  <div class="cell">
+    <div class="meta"><b>Gradient Border</b>background-clip border-box trick</div>
+    <button class="btn b-gborder">Fancy border</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Danger</b>red→orange, for destructive actions</div>
+    <button class="btn b-danger">Delete forever</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Success</b>green gradient confirmation</div>
+    <button class="btn b-success">Approve ✓</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Pill</b>fully rounded CTA</div>
+    <button class="btn b-pill">Sign up free</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Icon-only</b>46×46, inline SVG</div>
+    <div class="row">
+      <button class="btn b-icon" aria-label="lightning">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4.5 13.5h6L11 22l8.5-11.5h-6L13 2z"/></svg>
+      </button>
+      <button class="btn b-icon" aria-label="heart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.7-9.5-9A5.4 5.4 0 0 1 12 6.5 5.4 5.4 0 0 1 21.5 12c-2 4.3-9.5 9-9.5 9z"/></svg>
+      </button>
+      <button class="btn b-icon" aria-label="copy">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Sizes</b>sm / md / lg</div>
+    <div class="row">
+      <button class="btn b-grad b-sm">Small</button>
+      <button class="btn b-grad">Medium</button>
+      <button class="btn b-grad b-lg">Large</button>
+    </div>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Disabled</b>no lift, no shadow, not-allowed</div>
+    <button class="btn b-disabled" disabled>Unavailable</button>
+  </div>
+</div>
+
+<h2>🎮 <b>Interactive</b> — click karke dekho</h2>
+<div class="grid">
+  <div class="cell">
+    <div class="meta"><b>Ripple</b>click point se wave (Material-style)</div>
+    <button class="btn ripple" id="ripple">Click me</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Loading → Done</b>spinner phir green ✓</div>
+    <button class="btn b-load" id="loadBtn"><span class="spin"></span><span class="lbl">Submit</span></button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Toggle</b>gradient thumb slide</div>
+    <label class="sw"><input type="checkbox" checked><span class="track"></span></label>
+    <span style="font-size:.8rem;color:var(--slate)">AUTO-MODE</span>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Segmented</b>grouped mode switch</div>
+    <div class="seg" id="seg">
+      <button class="on">Design</button><button>Code</button><button>Ship</button>
+    </div>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Copy chip</b>click → "copied!" ✓</div>
+    <button class="copy" data-copy="#7c3aed">#7c3aed</button>
+    <button class="copy" data-copy="#22d3ee">#22d3ee</button>
+    <button class="copy" data-copy="linear-gradient(135deg,#7c3aed,#22d3ee)">brand gradient</button>
+  </div>
+  <div class="cell">
+    <div class="meta"><b>Button + badge</b>notification count</div>
+    <button class="btn b-solid" style="position:relative">Inbox
+      <span style="position:absolute;top:-7px;right:-7px;background:var(--red);color:#fff;
+        font-size:.65rem;font-weight:700;min-width:19px;height:19px;border-radius:999px;
+        display:flex;align-items:center;justify-content:center;border:2px solid var(--panel)">3</span>
+    </button>
+  </div>
+</div>
+
+<footer>
+  Button Lab · part of <b>super-skill</b> design assets · palette from
+  <code>brand/brand-guidelines.md</code> · all CSS/SVG/JS inline — works offline
+</footer>
+</div>
+
+<script>
+  // ripple
+  document.getElementById("ripple").addEventListener("click",function(e){
+    const r=this.getBoundingClientRect(),s=Math.max(r.width,r.height);
+    const d=document.createElement("span");d.className="rp";
+    d.style.width=d.style.height=s+"px";
+    d.style.left=(e.clientX-r.left-s/2)+"px";
+    d.style.top=(e.clientY-r.top-s/2)+"px";
+    this.appendChild(d);setTimeout(()=>d.remove(),600);
+  });
+
+  // loading → done
+  const lb=document.getElementById("loadBtn");
+  lb.addEventListener("click",function(){
+    if(this.classList.contains("loading"))return;
+    this.classList.add("loading");
+    setTimeout(()=>{
+      this.classList.remove("loading");this.classList.add("done");
+      this.querySelector(".lbl").textContent="Done ✓";
+      setTimeout(()=>{this.classList.remove("done");
+        this.querySelector(".lbl").textContent="Submit"},1800);
+    },1400);
+  });
+
+  // segmented
+  document.getElementById("seg").addEventListener("click",function(e){
+    if(e.target.tagName!=="BUTTON")return;
+    this.querySelectorAll("button").forEach(b=>b.classList.remove("on"));
+    e.target.classList.add("on");
+  });
+
+  // copy chips
+  document.querySelectorAll(".copy").forEach(c=>c.addEventListener("click",function(){
+    const t=this.dataset.copy;
+    if(navigator.clipboard) navigator.clipboard.writeText(t).catch(()=>{});
+    this.textContent="copied ✓";this.classList.add("ok");
+    setTimeout(()=>{this.textContent=t;this.classList.remove("ok")},1200);
+  }));
+</script>
+</body>
+</html>

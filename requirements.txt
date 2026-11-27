@@ -1,0 +1,19 @@
+# Optional dependencies for the bundled scripts in scripts/.
+# Most of the skill runs on the Python standard library alone;
+# install this file to enable the media/office/chart helpers:
+#
+#   pip install -r requirements.txt
+
+# video pipeline: make_video.py, concat_video.py (bundled static ffmpeg binary)
+pillow
+imageio
+imageio-ffmpeg
+
+# docx_report.py
+python-docx
+
+# office_validate.py + xlsx helpers
+openpyxl
+
+# chart.py PNG output (falls back to a text table when absent)
+matplotlib

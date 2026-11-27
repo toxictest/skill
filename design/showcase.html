@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>super-skill — Skill OS</title>
+<style>
+  :root{
+    --violet:#7c3aed; --cyan:#22d3ee; --ink:#0f1115; --panel:#171a21;
+    --steel:#2a2f3a; --mist:#e8eaf0; --slate:#9aa0ae;
+    --green:#34d399; --amber:#fbbf24; --red:#f87171;
+    --grad:linear-gradient(135deg,#7c3aed,#22d3ee);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;
+    background:var(--ink);color:var(--mist);line-height:1.6;
+    padding:2.2rem 1.25rem 3rem;
+    background-image:
+      radial-gradient(ellipse 55% 35% at 85% -8%,rgba(124,58,237,.25),transparent),
+      radial-gradient(ellipse 45% 30% at 5% 108%,rgba(34,211,238,.12),transparent);
+  }
+  .wrap{max-width:1040px;margin:0 auto}
+  /* ---------- hero ---------- */
+  .hero{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;margin-bottom:2.2rem}
+  .hero-txt{flex:1 1 340px}
+  .pill{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;letter-spacing:.1em;
+        text-transform:uppercase;color:var(--green);border:1px solid rgba(52,211,153,.4);
+        background:rgba(52,211,153,.08);padding:.3rem .7rem;border-radius:999px;margin-bottom:1rem}
+  .pill i{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.25}}
+  h1{font-size:3rem;letter-spacing:-.03em;line-height:1.1}
+  h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tagline{min-height:1.9em;color:var(--slate);font-size:1.08rem;margin-top:.55rem}
+  .tagline b{color:var(--mist)}
+  .tagline .lang{color:var(--cyan);font-size:.72rem;letter-spacing:.14em;
+                 text-transform:uppercase;display:block;margin-bottom:.15rem}
+  /* animated router */
+  .router{flex:0 0 260px}
+  .router svg{width:260px;height:260px}
+  .flow{stroke-dasharray:6 10;animation:flow 1.6s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-32}}
+  .core{animation:pulse 2.2s ease-in-out infinite;transform-origin:48px 48px}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;margin-bottom:1.6rem}
+  .stat{background:var(--panel);border:1px solid var(--steel);border-radius:12px;
+        padding:1rem;text-align:center}
+  .stat b{display:block;font-size:2rem;font-weight:700;background:var(--grad);
+          -webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat small{color:var(--slate);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+  /* ---------- sections ---------- */
+  h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--slate);
+     margin:1.8rem 0 .9rem}
+  h2 b{color:var(--cyan)}
+  .bento{display:grid;gap:.85rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--steel);border-radius:14px;
+        padding:1.15rem 1.2rem;transition:border-color .15s,transform .15s}
+  .card:hover{border-color:var(--violet);transform:translateY(-2px)}
+  .card h3{font-size:.98rem;margin-bottom:.4rem}
+  .card p{color:var(--slate);font-size:.85rem}
+  .span2{grid-column:span 2}
+  @media(max-width:640px){.span2{grid-column:span 1}}
+  .emo{font-size:1.5rem;display:block;margin-bottom:.4rem}
+  /* router demo */
+  .demo{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;background:#10131a;
+        border:1px solid var(--steel);border-radius:10px;padding:.8rem .9rem;margin-top:.7rem}
+  .demo .in{color:var(--slate)}
+  .demo .out{color:var(--green)}
+  .demo .why{color:var(--cyan)}
+  /* playbooks */
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+  .chip{font-size:.78rem;padding:.32rem .7rem;border-radius:8px;background:rgba(124,58,237,.16);
+        border:1px solid rgba(124,58,237,.45);color:#c4b5fd}
+  /* sources grid */
+  .sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(14px,1fr));gap:5px;margin-top:.7rem}
+  .sgrid i{aspect-ratio:1;border-radius:3px;opacity:0;animation:pop .4s forwards}
+  @keyframes pop{to{opacity:1}}
+  .core-c{background:var(--green)} .tool-c{background:var(--violet)}
+  .cav-c{background:var(--amber)} .skip-c{background:var(--red)}
+  .legend{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.7rem;font-size:.72rem;color:var(--slate)}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:.3rem}
+  /* workflow */
+  .flowbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:center;
+           background:var(--panel);border:1px solid var(--steel);border-radius:12px;padding:1rem}
+  .step{font-size:.82rem;padding:.4rem .8rem;border-radius:8px;background:rgba(34,211,238,.1);
+        border:1px solid rgba(34,211,238,.35);color:#a5f3fc}
+  .arr{color:var(--slate)}
+  /* palette */
+  .pal{display:flex;gap:.5rem;flex-wrap:wrap}
+  .pal div{flex:1 1 90px;border-radius:10px;padding:.55rem .6rem;font-size:.68rem;
+           font-family:ui-monospace,monospace;border:1px solid var(--steel)}
+  footer{margin-top:2.2rem;text-align:center;color:var(--slate);font-size:.78rem}
+  code{font-family:ui-monospace,Menlo,monospace;background:#10131a;border:1px solid var(--steel);
+       padding:.1rem .45rem;border-radius:6px;color:var(--cyan);font-size:.84em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-txt">
+      <span class="pill"><i></i> AUTO-MODE active · updated 71-source edition</span>
+      <h1>super<span>-skill</span></h1>
+      <div class="tagline" id="tag">
+        <span class="lang">English</span>
+        <b>One skill. Every task.</b> — skill khud route karta hai.
+      </div>
+    </div>
+    <div class="router" aria-hidden="true">
+      <svg viewBox="0 0 96 96">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="96" y2="96">
+            <stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#22d3ee"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#g)" stroke-width="2.5" stroke-linecap="round" fill="none" class="flow">
+          <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+          <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+          <path d="M48 48 L20 28"/>
+        </g>
+        <g fill="#22d3ee">
+          <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+          <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+          <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+          <circle cx="18" cy="27" r="5"/>
+        </g>
+        <g class="core">
+          <circle cx="48" cy="48" r="11" fill="url(#g)"/>
+          <circle cx="48" cy="48" r="4.5" fill="#0f1115"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats" id="stats">
+    <div class="stat"><b data-to="101">0</b><small>files</small></div>
+    <div class="stat"><b data-to="71">0</b><small>sources</small></div>
+    <div class="stat"><b data-to="7">0</b><small>playbooks</small></div>
+    <div class="stat"><b data-to="8">0</b><small>scripts</small></div>
+    <div class="stat"><b data-to="3">0</b><small>languages</small></div>
+  </div>
+
+  <!-- BENTO -->
+  <h2>⚙️ <b>How it runs</b> — skill OS</h2>
+  <div class="bento">
+    <div class="card span2">
+      <span class="emo">🤖</span>
+      <h3>Live auto-router</h3>
+      <p>Aap direct task dete ho — classifier khud playbook choose karta hai (Hinglish + English):</p>
+      <div class="demo">
+        <div class="in">$ choose_playbook.py "updated skill se kuch design kro"</div>
+        <div class="out">→ ROUTE: playbooks/creative-media.md</div>
+        <div class="why">→ REASON: matched ['design'] (score 3)</div>
+        <div class="in" style="color:var(--slate);margin-top:.35rem">…ye page isi route se bana hai ✓</div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="emo">🗂</span>
+      <h3>7 Playbooks</h3>
+      <p>Domain instructions loaded on demand:</p>
+      <div class="chips">
+        <span class="chip">🔍 research</span><span class="chip">💻 coding</span>
+        <span class="chip">📄 documents</span><span class="chip">🛡 security</span>
+        <span class="chip">📊 data-ai</span><span class="chip">⚙ automation</span>
+        <span class="chip">🎨 creative</span>
+      </div>
+    </div>
+    <div class="card">
+      <span class="emo">🧪</span>
+      <h3>Verify-first</h3>
+      <p>Har deliverable test/parse/link-check ke baad hi present hota hai — claims ke saath citations.</p>
+    </div>
+    <div class="card">
+      <span class="emo">🛡</span>
+      <h3>Safety always on</h3>
+      <p>Security tasks authorized-only; consent rules; permission-gated tools flagged ⚠️.</p>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <h2>📦 <b>71 sources</b> mapped — 13 core · 40 tools · 17 caveats · 1 skip</h2>
+  <div class="card">
+    <div class="sgrid" id="sgrid" aria-label="71 source verdicts"></div>
+    <div class="legend">
+      <span><i style="background:var(--green)"></i>✅ core reference (13)</span>
+      <span><i style="background:var(--violet)"></i>🟡 useful tool (40)</span>
+      <span><i style="background:var(--amber)"></i>⚠️ caveat (17)</span>
+      <span><i style="background:var(--red)"></i>⛔ skip (1)</span>
+    </div>
+  </div>
+
+  <!-- WORKFLOW -->
+  <h2>⚡ <b>Workflow</b></h2>
+  <div class="flowbar">
+    <span class="step">1 classify</span><span class="arr">→</span>
+    <span class="step">2 route</span><span class="arr">→</span>
+    <span class="step">3 plan</span><span class="arr">→</span>
+    <span class="step">4 execute</span><span class="arr">→</span>
+    <span class="step">5 verify</span><span class="arr">→</span>
+    <span class="step">6 deliver</span>
+  </div>
+
+  <!-- PALETTE -->
+  <h2>🎨 <b>Brand palette</b> — EN · हिंदी · Hinglish</h2>
+  <div class="pal">
+    <div style="background:#7c3aed;color:#fff">#7c3aed<br>Router Violet</div>
+    <div style="background:#22d3ee;color:#083344">#22d3ee<br>Route Cyan</div>
+    <div style="background:#0f1115;color:#e8eaf0">#0f1115<br>Ink</div>
+    <div style="background:#34d399;color:#052e1e">#34d399<br>Verified</div>
+    <div style="background:#fbbf24;color:#451a03">#fbbf24<br>Gate Amber</div>
+  </div>
+
+  <footer>
+    built with the updated <b>super-skill</b> (101 files) on Arena.ai ·
+    regenerate sources: <code>python3 scripts/build_sources.py</code>
+  </footer>
+</div>
+
+<script>
+  // rotating trilingual tagline
+  const tags=[
+    {l:"English",t:"<b>One skill. Every task.</b> — skill khud route karta hai."},
+    {l:"हिंदी",t:"<b>एक स्किल। हर काम।</b> — रास्ता स्किल खुद चुनेगा।"},
+    {l:"Hinglish",t:"<b>Ek skill. Har kaam.</b> — seedha task do, baaki skill sambhale."}
+  ];
+  let ti=0;
+  const tag=document.getElementById("tag");
+  setInterval(()=>{
+    ti=(ti+1)%tags.length;
+    tag.style.opacity=0;
+    setTimeout(()=>{
+      tag.innerHTML=`<span class="lang">${tags[ti].l}</span>${tags[ti].t}`;
+      tag.style.opacity=1;
+    },250);
+  },3200);
+  tag.style.transition="opacity .25s";
+
+  // animated counters
+  document.querySelectorAll("#stats b").forEach(el=>{
+    const to=+el.dataset.to;let n=0;
+    const step=()=>{n+=Math.max(1,Math.ceil(to/28));
+      if(n>=to){el.textContent=to;return}el.textContent=n;requestAnimationFrame(step)};
+    setTimeout(step,200);
+  });
+
+  // 71 source cells: 13 core, 40 tool, 17 caveat, 1 skip
+  const cells=[...Array(13).fill("core-c"),...Array(40).fill("tool-c"),
+               ...Array(17).fill("cav-c"),"skip-c"];
+  const grid=document.getElementById("sgrid");
+  cells.forEach((c,i)=>{
+    const b=document.createElement("i");b.className=c;
+    b.style.animationDelay=(i*14)+"ms";grid.appendChild(b);
+  });
+</script>
+</body>
+</html>

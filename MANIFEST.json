@@ -1,0 +1,688 @@
+{
+ "name": "super-skill",
+ "generated": "2026-11-27T07:48:16+00:00",
+ "file_count": 170,
+ "total_bytes": 13175392,
+ "files": {
+  ".git/HEAD": {
+   "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+   "size": 21
+  },
+  ".git/config": {
+   "sha256": "cb33971b0f26f05a9a083da064b3ccc51745a19198d9ffa0931207adaac8315d",
+   "size": 259
+  },
+  ".git/description": {
+   "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+   "size": 73
+  },
+  ".git/hooks/applypatch-msg.sample": {
+   "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+   "size": 478
+  },
+  ".git/hooks/commit-msg.sample": {
+   "sha256": "1f74d5e9292979b573ebd59741d46cb93ff391acdd083d340b94370753d92437",
+   "size": 896
+  },
+  ".git/hooks/fsmonitor-watchman.sample": {
+   "sha256": "e0549964e93897b519bd8e333c037e51fff0f88ba13e086a331592bf801fa1d0",
+   "size": 4726
+  },
+  ".git/hooks/post-update.sample": {
+   "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+   "size": 189
+  },
+  ".git/hooks/pre-applypatch.sample": {
+   "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+   "size": 424
+  },
+  ".git/hooks/pre-commit.sample": {
+   "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+   "size": 1649
+  },
+  ".git/hooks/pre-merge-commit.sample": {
+   "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+   "size": 416
+  },
+  ".git/hooks/pre-push.sample": {
+   "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+   "size": 1374
+  },
+  ".git/hooks/pre-rebase.sample": {
+   "sha256": "4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3",
+   "size": 4898
+  },
+  ".git/hooks/pre-receive.sample": {
+   "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+   "size": 544
+  },
+  ".git/hooks/prepare-commit-msg.sample": {
+   "sha256": "e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619",
+   "size": 1492
+  },
+  ".git/hooks/push-to-checkout.sample": {
+   "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+   "size": 2783
+  },
+  ".git/hooks/sendemail-validate.sample": {
+   "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+   "size": 2308
+  },
+  ".git/hooks/update.sample": {
+   "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+   "size": 3650
+  },
+  ".git/index": {
+   "sha256": "fe12ad6ada05016c6539719bb6b02e6b45404eae7c2230d11eb7340f4daa7ff8",
+   "size": 46
+  },
+  ".git/info/exclude": {
+   "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+   "size": 240
+  },
+  ".git/logs/HEAD": {
+   "sha256": "c02965248c416aa4ca3556f4fd36fac7581164af207002aba3500f7f38b48069",
+   "size": 172
+  },
+  ".git/logs/refs/heads/main": {
+   "sha256": "c02965248c416aa4ca3556f4fd36fac7581164af207002aba3500f7f38b48069",
+   "size": 172
+  },
+  ".git/logs/refs/remotes/origin/HEAD": {
+   "sha256": "c02965248c416aa4ca3556f4fd36fac7581164af207002aba3500f7f38b48069",
+   "size": 172
+  },
+  ".git/objects/pack/pack-4afe6d857963ba5e56c5ec50542f15f5560f1c67.idx": {
+   "sha256": "d9f2fdc010f5e415d7c390c63aef71f329d6d1d5bbe65365cb4f56a6eab9b608",
+   "size": 1156
+  },
+  ".git/objects/pack/pack-4afe6d857963ba5e56c5ec50542f15f5560f1c67.pack": {
+   "sha256": "230e67c3e30bc6d51c10b7074b5a8985158257ee0788bd7f83973ca6e7826a73",
+   "size": 6459935
+  },
+  ".git/objects/pack/pack-4afe6d857963ba5e56c5ec50542f15f5560f1c67.rev": {
+   "sha256": "d99770610f6de78c6cb90a468af320366be77500c1d1b4a4246aea1dfbfb32ee",
+   "size": 64
+  },
+  ".git/packed-refs": {
+   "sha256": "9150d435deb58a699f0a557defb994021fa3202c396f5e92c0be525d94e4905e",
+   "size": 112
+  },
+  ".git/refs/heads/main": {
+   "sha256": "e94ceb1c54d44bc95748eeef44b41351597030f415f21ee5c3f72330c70ba413",
+   "size": 41
+  },
+  ".git/refs/remotes/origin/HEAD": {
+   "sha256": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4",
+   "size": 30
+  },
+  ".gitignore": {
+   "sha256": "b43b953577db8ebc3c14a9b0edb85d5b2c66aa35e3979f2bafdd269bbf4e96ba",
+   "size": 85
+  },
+  "ANALYSIS.md": {
+   "sha256": "b23bc6fe40c10b1d555bf728e1e0b4350e9fe60d94652bc69dfa2832d76a5e07",
+   "size": 18643
+  },
+  "README.md": {
+   "sha256": "3738295ccaecc6403f63a750860c9513de0f8ab0ecc722d9913196456b1ce4c0",
+   "size": 2379
+  },
+  "SKILL.md": {
+   "sha256": "59c8649a2cbc3f758546587690cbaa831ca167fee433d7170b2baf8c5bfed410",
+   "size": 11020
+  },
+  "USAGE-ARENA.md": {
+   "sha256": "1d3a522f9ebeacfcf23a35a456955e7fa941fcf7fa705c49c1485d4bdaaea058",
+   "size": 3007
+  },
+  "brand/brand-guidelines.md": {
+   "sha256": "6dafd1c56abe3bb971eed209147bb65bcd441c3f7d1de2358b063aa060f43644",
+   "size": 4560
+  },
+  "brand/index.html": {
+   "sha256": "09df3b96465fb933ff973dd8dd0bdc7d37b228883b724ccaf17223784083cb88",
+   "size": 20486
+  },
+  "brand/logo-icon.svg": {
+   "sha256": "d2c2ffe7dc1aee2a22afdcbff6f6b6f82e15793bc7e1ca10c2d8e699945e2ae2",
+   "size": 924
+  },
+  "brand/logo-mono.svg": {
+   "sha256": "74850aaeb3b254fd803ff9094ed8ec84015f2335a2dcf6784621603a09a563b6",
+   "size": 939
+  },
+  "brand/logo-primary.svg": {
+   "sha256": "22256cf56fa5035896ebebba152532c53f7bc3aad002b708649ee721c0e13144",
+   "size": 1403
+  },
+  "design/buttons.html": {
+   "sha256": "8d0af902aa176b889cda097584b8bfaa6a8670bdcd7ba49fb33b054a0449b654",
+   "size": 15163
+  },
+  "design/demo.mp4": {
+   "sha256": "34270a325f08550e1cafc6f5b0e3b3910b9b35d2365f3769e2be49fe88a035d9",
+   "size": 89597
+  },
+  "design/hero.jpg": {
+   "sha256": "2cd011cb1a40e9f96ca56d7ab241f7f04a6e3bdd4e3fbb0e7968b08701c371e0",
+   "size": 128636
+  },
+  "design/hero.png": {
+   "sha256": "277d413ab5c0b19d7fbeb780304c955abbdfd3ddb6bb41e17691d536209c42aa",
+   "size": 6002833
+  },
+  "design/index.html": {
+   "sha256": "29f9fd4f2bbfbb2b65483c01283087e1240916b98cad242cc4ca5af8f607d7a7",
+   "size": 178713
+  },
+  "design/showcase.html": {
+   "sha256": "b3259c3b432c39ac1822529472736a3944d78d393d94bc48040354fc82447b1e",
+   "size": 12138
+  },
+  "playbooks/automation-systems.md": {
+   "sha256": "787148a716e7946289e67ac5ebe1fed43fb7514e3f47a064e713d532a8a3fdfa",
+   "size": 3018
+  },
+  "playbooks/coding-dev.md": {
+   "sha256": "13577f8410608bdce5af7c1c22efc978b6f5e150f4a86e7f0e832bda13f73d52",
+   "size": 4309
+  },
+  "playbooks/creative-media.md": {
+   "sha256": "d650910158f19ef2585f7a008946831ebd7a07caf009c0113291600bfd6030f3",
+   "size": 4408
+  },
+  "playbooks/data-ai-memory.md": {
+   "sha256": "ac366f0fc47de09f09b900dfd035f4de190bd98f0ea5eb61e9cb16256592e410",
+   "size": 2988
+  },
+  "playbooks/documents.md": {
+   "sha256": "2c12af1ee3b9d9f9c5b9a6985b56077335b4289dd618fcda7adf2f5d805cf6b9",
+   "size": 2189
+  },
+  "playbooks/research-web.md": {
+   "sha256": "6b3e7485bdde2d6f26d8d097f45d78a2373c9add72b67c3625253e0f8c4f65e8",
+   "size": 2363
+  },
+  "playbooks/security.md": {
+   "sha256": "43089e8be2895561eae25b3452a722d066515801957e77b3d40c2d05be50dd03",
+   "size": 4447
+  },
+  "playbooks/video-youtube.md": {
+   "sha256": "c521a18d8d10e4099079e9984020baf6ae0cc6b590fc6566642d33994ee5e81d",
+   "size": 4701
+  },
+  "requirements.txt": {
+   "sha256": "020ad2424997de6870ca0b025dccb8e35ce9383f49575081a02958d86a98bd7e",
+   "size": 486
+  },
+  "scripts/build_sources.py": {
+   "sha256": "f4908d7469b4d56de440e6f56430912ae8268501369b15932bb02a27ff5496bb",
+   "size": 31427
+  },
+  "scripts/chart.py": {
+   "sha256": "528486e7fbfc2ee2c35aee803c20a187f57c3852804bec336d7c9d0e1d133ab5",
+   "size": 2877
+  },
+  "scripts/check_urls.sh": {
+   "sha256": "8e7cd795e79d59f1297ed80fc0671e8b87bbd44a23c7cea295853d357dbe858d",
+   "size": 1080
+  },
+  "scripts/choose_playbook.py": {
+   "sha256": "1eeb938d6788b780200c183a301fbd5b7d69db7c8b708a51bfe2794b700ce14b",
+   "size": 6206
+  },
+  "scripts/concat_video.py": {
+   "sha256": "9156af2f328e3f5c86b01c7b6fe29c66136b573061748138207990766f2eca8a",
+   "size": 5238
+  },
+  "scripts/csv_profile.py": {
+   "sha256": "422879615a4951ead432231f56c0ed747ed4232027c0f20d9c0007cb9b9f83c8",
+   "size": 1987
+  },
+  "scripts/docx_report.py": {
+   "sha256": "47f0929a2e49b44379f6f0d38dbe202bb4305db682987d5f7fa5a53554050c6f",
+   "size": 3585
+  },
+  "scripts/git_commit_msg.py": {
+   "sha256": "2c9a2184bdbf11d9f22383eead1b17a7872abbd3b87c050fabef407fbf28e224",
+   "size": 2864
+  },
+  "scripts/health_check.py": {
+   "sha256": "75b3d17946b9a91d6d51ee278407003177ac709bf44bc83b00144c2fb9fc4a7a",
+   "size": 2566
+  },
+  "scripts/html_template.py": {
+   "sha256": "361a512811c2fc4903a3291779cb7e61a3bb16b3cd51119647900a16fc2ffcfb",
+   "size": 4168
+  },
+  "scripts/link_extract.py": {
+   "sha256": "4d6b85e4b4919b1b695fd126d410d91b8924a6fe92a70f92452e01e6375af858",
+   "size": 1981
+  },
+  "scripts/make_manifest.py": {
+   "sha256": "6b7b58504452c2d4a79b48434d7d216df203fd4e664f9cfe2f596e377694a8a7",
+   "size": 2643
+  },
+  "scripts/make_srt.py": {
+   "sha256": "874bde64cf497a4d8b28b80cf1fed44ec0f2e2116993038b2d1d9b52480f5a46",
+   "size": 3344
+  },
+  "scripts/make_video.py": {
+   "sha256": "6f5fc776151de2daa1e23edf28897e0790c6a22a7169953ef3228b022efc8d3b",
+   "size": 6043
+  },
+  "scripts/new_skill.sh": {
+   "sha256": "2ce9c732781570a3e0db6b8594f383cd8494411b9d415243959e7a3ffb424d2d",
+   "size": 1369
+  },
+  "scripts/office_validate.py": {
+   "sha256": "706341d3c0eaab0a7c6ef1db265f81cb1b6e867acc9d14b8e8d0738435122b21",
+   "size": 3006
+  },
+  "scripts/palette.py": {
+   "sha256": "82be521392e280c812406c2ce91c11cdce208f8d097c57325ddba52b139a79b3",
+   "size": 3366
+  },
+  "scripts/run_checks.py": {
+   "sha256": "b9bc3651712775a437d1163d4a217b9aad6c9b18f5369f4777f41fa39d459f3d",
+   "size": 3769
+  },
+  "scripts/secrets_scan.py": {
+   "sha256": "53be83e7b4b7690c5beed3dd8cb243ee54ef77f5b6c7fff755d8452f3428d069",
+   "size": 2820
+  },
+  "scripts/security_headers.py": {
+   "sha256": "782bdf58d06986adb8daac57961dc1e39db7c48e983b249373d0fccf0776f568",
+   "size": 2228
+  },
+  "scripts/selftest.py": {
+   "sha256": "06f57559f92fe4d2cbd3fd54389a76ed1d7705caffb31fb7f04b770ce16df242",
+   "size": 10071
+  },
+  "scripts/soffice_convert.sh": {
+   "sha256": "342efb6810e5f0a254567553e826f2df324f85560cc8db4a2e9092778bc5f6d8",
+   "size": 1001
+  },
+  "scripts/youtube_seo.py": {
+   "sha256": "67ac1759f0e3676745529d454a7b45e1a7dbd8d099150fcf7a2f62ea628c4ebe",
+   "size": 5258
+  },
+  "sources/01-openai-skills.md": {
+   "sha256": "f9b7385ca6658e1a895d1dbe784cfa03bdd000a7ac20c9ae0fee9f8c3326029e",
+   "size": 476
+  },
+  "sources/02-agentskills.md": {
+   "sha256": "3ae4ae490225fc6179690d353e3fbdf950c0ee785eb2a287099f042f5005fdd7",
+   "size": 597
+  },
+  "sources/03-voltagent-awesome-agent-skills.md": {
+   "sha256": "64bdc48630149c40b4b571f8d66b4a0aa7dbd1e72847376626fe10f0b08c37e9",
+   "size": 573
+  },
+  "sources/04-composio-awesome-claude-skills.md": {
+   "sha256": "a7ea488450c44f18cf9e613bba980a72cb65dc24c67f8bc8742c991fdce8b507",
+   "size": 549
+  },
+  "sources/05-obra-superpowers.md": {
+   "sha256": "50b6400f8d6289393b4557e787b4afa67d56e5cdcb2ef7f196c1bf6cb5f1f9ca",
+   "size": 516
+  },
+  "sources/06-skills-org-invalid.md": {
+   "sha256": "ca5c6c12955708d6d6d2587fbff56684df628e2f4ac320b418e8b743a9622295",
+   "size": 464
+  },
+  "sources/08-firecrawl.md": {
+   "sha256": "de37aaf41c583f9cdcc6ffe8a996e01c2a4775ba48b2f21a24661199a7333f28",
+   "size": 525
+  },
+  "sources/09-browser-use.md": {
+   "sha256": "aa3be0542dcec7996ee58d933b5f1354eaf8e093d954d859f2f583d45e001047",
+   "size": 512
+  },
+  "sources/10-agent-browser.md": {
+   "sha256": "68035c9c0e7c1900dc58d882621281a2e9cfb525d9271363c7d695ff7d2e680d",
+   "size": 484
+  },
+  "sources/11-crawlee.md": {
+   "sha256": "09e13b12020c7e837aa31566bd78e80d8f1322c3a0e6976e70cdd334706f0e79",
+   "size": 496
+  },
+  "sources/12-scrapegraph-ai.md": {
+   "sha256": "5b15375699af9acbd8a0e3f5a513e634661fedba0c292dc54b02a77a4f1ae980",
+   "size": 523
+  },
+  "sources/13-crawl4ai.md": {
+   "sha256": "9eab5245436cf27c7e9e475f0122b40f6d297714ba3f75917f7fc7777b1726fc",
+   "size": 522
+  },
+  "sources/14-gpt-researcher.md": {
+   "sha256": "b0acb1dc2cef60773cf431ca41c02b9bd1bf22b43f21a9d5b2bd483ca7cbc953",
+   "size": 507
+  },
+  "sources/15-openhands.md": {
+   "sha256": "74626b5b2111503f83d10800b345d57d151556e191e2c9642ef65531506227cf",
+   "size": 509
+  },
+  "sources/16-aider.md": {
+   "sha256": "b599c587d47c3ab8849b8036ba9123bb1bca02cf31bb0bad473ceda6ec56b64d",
+   "size": 480
+  },
+  "sources/17-swe-agent.md": {
+   "sha256": "cb3bde85cfaa1a003c44d26d1dd91fdab8edf1a7dbf02a5e166ec92e2ecb974c",
+   "size": 474
+  },
+  "sources/18-continue.md": {
+   "sha256": "b8974dcc349cd9a00d57a3cf6abc3a97a52bee67af36e2083d9a4b655826e005",
+   "size": 465
+  },
+  "sources/19-tabby.md": {
+   "sha256": "c7c796c988eb1e3c130f747a186d4dbf34122edeaee5769b491eb4cef0b6e2b5",
+   "size": 466
+  },
+  "sources/20-patchwork.md": {
+   "sha256": "e0de1a061b3ce2d270d8ff467a5a92509c4ffdb9d10a4d50c9413488ab7fbcfe",
+   "size": 461
+  },
+  "sources/21-claude-code.md": {
+   "sha256": "22377f6be631973a96785e4346bc3b8c922e0f5c764494e42a82c1c12b792d0a",
+   "size": 499
+  },
+  "sources/22-browser-use-dup.md": {
+   "sha256": "1631b55ae1f2541f3bb54c36d6d5aaa52ae06d10bddc74dcd55c8198dd41704f",
+   "size": 456
+  },
+  "sources/23-agent-browser-dup.md": {
+   "sha256": "aecd595525a883ca43c1ea75b701c312edbcfaae606db8ffb91e824ca2fcae04",
+   "size": 464
+  },
+  "sources/24-powertoys.md": {
+   "sha256": "1ea12e5024b336e0e32aeaa2e4c98b5c42ff3c23c3afc26fb4e9cb941ed047ed",
+   "size": 468
+  },
+  "sources/25-stagehand.md": {
+   "sha256": "80471b45bd69f771eb0c238e57ed478cd220c31ac62b56f9e66c125b2fb18a33",
+   "size": 473
+  },
+  "sources/26-n8n.md": {
+   "sha256": "5d3360349811f1f7d4c44f78f9eb003d1bad9716f520961e0cc4975a479ed8ec",
+   "size": 497
+  },
+  "sources/27-activepieces.md": {
+   "sha256": "106fd3799235fde85f0e34595bc4e50069890f592c9a700cdbf36045a74444cc",
+   "size": 469
+  },
+  "sources/28-nuclei.md": {
+   "sha256": "9611a54bd67217d6a3bc60df538a1dac6edc7a0249e62fdde7cf0c4638a42821",
+   "size": 504
+  },
+  "sources/29-zaproxy.md": {
+   "sha256": "7f419599d4ca74c857b9850c400f83776fc5ea75205a271941cfdb3cc0b7014e",
+   "size": 459
+  },
+  "sources/30-semgrep.md": {
+   "sha256": "1353439fc3c11f8bda3525dcf4bb759df3c65cd9f0e898c6bc1c3ad78f6a5ac9",
+   "size": 505
+  },
+  "sources/31-trailofbits-skills.md": {
+   "sha256": "c30bcdf597bd2e9fc4dca8bcef30119f7eaa4e15512d3540e2c92a468df55b17",
+   "size": 500
+  },
+  "sources/32-owasp-wstg.md": {
+   "sha256": "b5bb96adb4a1682645395b87200f6ea50cab030cc8afb645d5beb1445cfe38b1",
+   "size": 518
+  },
+  "sources/33-owasp-asvs.md": {
+   "sha256": "b9e72ac25175fc2b25a916ddd91ea25e2a16ada7c6185325a0958d90fb6d7711",
+   "size": 460
+  },
+  "sources/34-owasp-masvs.md": {
+   "sha256": "0517c7a03d484a6671786420ec00a4dc2ab6467c0c6635f2cf0fb5040413caa5",
+   "size": 432
+  },
+  "sources/35-ffuf.md": {
+   "sha256": "76c26947fffbd8fb580da462f24a87fc518eb1a8efd50b66a1f40a6b01b4d93d",
+   "size": 452
+  },
+  "sources/36-mitmproxy.md": {
+   "sha256": "9b09fcad13f934c789d6b4cae3135c79629f873e4594c3a77b001b5617d8983f",
+   "size": 478
+  },
+  "sources/37-sqlmap.md": {
+   "sha256": "f84cad56cc29592bbc1c5d95880486c6e6f708cd3ae5548354f78bef5b28b5fe",
+   "size": 500
+  },
+  "sources/38-crackmapexec.md": {
+   "sha256": "5ffabcb0642e8e81632a846273187453c4a3425774c24df659e79ca8e694930f",
+   "size": 498
+  },
+  "sources/39-markitdown.md": {
+   "sha256": "7ca9630994ccc9453f8d060f134def692bc0edb4138ffa92a5e0e096a7798820",
+   "size": 479
+  },
+  "sources/40-docling.md": {
+   "sha256": "cbd7eee72346700cad295c503e9b141f0642e1cc0fc9b76887b922038f7f7154",
+   "size": 507
+  },
+  "sources/41-paddleocr.md": {
+   "sha256": "f9b7fae860d07d0c67a66e8fecdba34f65c31ed31cbd6d1e4fc9e116cbcf2502",
+   "size": 504
+  },
+  "sources/42-unstructured.md": {
+   "sha256": "73a4808e26c9dc9e1a96474aeca26c5a4e6ac2a5dda5f0e687804ade95087569",
+   "size": 516
+  },
+  "sources/43-libreoffice.md": {
+   "sha256": "6168bcb217f51850f78319d70bd1966da0def081dc4a532d91e145424394c447",
+   "size": 528
+  },
+  "sources/44-onlyoffice.md": {
+   "sha256": "71456c73b296be2b8710d33ca4287c8833edf2af312368d018fbaaaf20b0a167",
+   "size": 499
+  },
+  "sources/45-qdrant.md": {
+   "sha256": "7f2aeb4dcaf61993532a974ac3564127e1af5b38bb951c3d04fb44e3cace2a51",
+   "size": 477
+  },
+  "sources/46-llama-index.md": {
+   "sha256": "d91431b7b485aba634ce65f86ef503fba81c770b9ae0071bc3ae05c78841308b",
+   "size": 473
+  },
+  "sources/47-langgraph.md": {
+   "sha256": "3baca0b5d07919d5a261f6498bb5e1a395827eb924a07ed24580240769c934d7",
+   "size": 488
+  },
+  "sources/48-flowise.md": {
+   "sha256": "9b458deb24495b21243f88e2d296b50811ef5f001aaf847054daff01d6ba966e",
+   "size": 452
+  },
+  "sources/49-semantic-kernel.md": {
+   "sha256": "49f535d6303f5f977322ef01f706fc80a0e5680426e03bd1e38e3daf72b12b9b",
+   "size": 475
+  },
+  "sources/50-crewai.md": {
+   "sha256": "23826af06128c63fc852a725750568b638a3720f24c4c9327ba5db3c5a253528",
+   "size": 484
+  },
+  "sources/51-mcp-servers.md": {
+   "sha256": "2ba77f2a90417198dd6cd2b143808e50a1ece5523c6e87b9bf447da20ee2e948",
+   "size": 525
+  },
+  "sources/52-composio.md": {
+   "sha256": "cb9ce8aebf7763195b14f5af5bc0ddcaa075424a8c2a792316837afd3817fc4f",
+   "size": 478
+  },
+  "sources/53-mem0.md": {
+   "sha256": "236a573227eebebb3758242c2489526d9da1ba7956a76963fc1508b96371fdaa",
+   "size": 473
+  },
+  "sources/54-autogpt.md": {
+   "sha256": "e6e19190f69648ecb3331c52b7a32e07a4c42e3c0b7b13ab4bdfb1e1337b235b",
+   "size": 498
+  },
+  "sources/55-langchain.md": {
+   "sha256": "a54285cd339271a1825ddd1f653f9600d1c499bb99ea9d89e31d3f46b134e36a",
+   "size": 492
+  },
+  "sources/56-comfyui.md": {
+   "sha256": "b319896680f01b472ccb073cf9ff4dce19ef094ebcd845540e151141bf8e6d43",
+   "size": 499
+  },
+  "sources/57-controlnet.md": {
+   "sha256": "043e3ed937c39bbcab38e09d01be762755164452a3506188a60cd83c523ddd9e",
+   "size": 510
+  },
+  "sources/58-facefusion.md": {
+   "sha256": "85a8d2bc402f82ee3484105fbdd2fc3974fa9002de2c3fa68e3db4c72b235720",
+   "size": 497
+  },
+  "sources/59-ai-video-generator.md": {
+   "sha256": "80d91c36bb9d603e02f8a996898a227c12fb4a3e14a609911a9654dd973903a1",
+   "size": 607
+  },
+  "sources/60-modelscope.md": {
+   "sha256": "072804fe242f60ed05a7c4ae1c0374a9844546255cb1ba1c24787d961f435d8f",
+   "size": 490
+  },
+  "sources/61-termux.md": {
+   "sha256": "89e98a9efc4ab6e78c0cde14effbb383619cf79551e6bc86700a737d93e1ad4a",
+   "size": 454
+  },
+  "sources/62-ohmyzsh.md": {
+   "sha256": "f2448248ea498e1f04a0ec7130757177ce4ff16da2e3f803d8b6302541bea555",
+   "size": 465
+  },
+  "sources/63-ansible.md": {
+   "sha256": "10aaaccb76e44b5e4fcf5e2859b87e82e86dafb497225ad17583515b27da36e7",
+   "size": 484
+  },
+  "sources/64-localsend.md": {
+   "sha256": "984042fae83a925fa573930b07456f93986456b513e629896e80d4fa1055dac7",
+   "size": 467
+  },
+  "sources/65-fastfetch.md": {
+   "sha256": "4c61773807b76468ce7ed1f8bdd7a2ed76249b3fbefd5a340f9ff5ec7adf9bfc",
+   "size": 473
+  },
+  "sources/66-linux-server-skill.md": {
+   "sha256": "6305c35e8b1e600d8d29b7b2a5d085f500ca668a06990f5cb5cfacc8c3ab4670",
+   "size": 879
+  },
+  "sources/67-awesome-cursor-skills.md": {
+   "sha256": "c503be2f17b3ac215a3a134e7b02ee23e1afb8bffd583b41a4b32cb6971a501c",
+   "size": 662
+  },
+  "sources/68-spec-kit-command-cursor.md": {
+   "sha256": "4f027d8f05f94ae3159c7e6ed0c7e95746cba1d41d013e471e5c508c78dc0ef1",
+   "size": 643
+  },
+  "sources/69-cursor-handbook.md": {
+   "sha256": "bda3931d2f3c6834f041148a52117975e65b478e3b157dca9d7a71ef586a2f6b",
+   "size": 717
+  },
+  "sources/70-ai-skill-commands.md": {
+   "sha256": "05d50cd514d77b11296a09ff5e1da11a731506627448143775c83fac8c831d14",
+   "size": 610
+  },
+  "sources/71-mouse-controller.md": {
+   "sha256": "34aab91a17bbc557a54b8e864e863c03357c121b99a6a8160516f39a205d1cca",
+   "size": 650
+  },
+  "sources/72-web-pentest-sample.md": {
+   "sha256": "3b46b3cc99497951192711050513cc27f33e7e141d107fbd223bddf0c1634d5a",
+   "size": 701
+  },
+  "sources/73-agent-pentest-skills.md": {
+   "sha256": "567e9a888b76fc0cedbd12715c78355d74a1d46496f43e91594942e529b8e75a",
+   "size": 657
+  },
+  "sources/74-open-sesame.md": {
+   "sha256": "5a765d3cc3089d2fb5e8be43dd945ba54f793d62dd1694c20c2395137df0f4eb",
+   "size": 709
+  },
+  "sources/75-awesome-skills-security.md": {
+   "sha256": "b8d1dc8b3fafaf4d8a5c3c6e65acbaab2fdd350acb2d1bde9650eae47396f558",
+   "size": 692
+  },
+  "sources/76-topic-ai-pentest.md": {
+   "sha256": "9cc562c279c704a98e9e3b7c5bbb4e97eee108bec2871f14a217d98a00f21148",
+   "size": 747
+  },
+  "sources/77-hermes-optional-skills.md": {
+   "sha256": "91efd91d2e035328f2d6c7d16ed071635062f63534a0610c4266c0756e7478bb",
+   "size": 826
+  },
+  "sources/78-topic-pentest-tools.md": {
+   "sha256": "ec95838ff3cffc1fa671b05d34fc2bdd6c70df6fbf7d63bb9f2bb2def2a346d0",
+   "size": 672
+  },
+  "sources/79-vercel-skills-cli.md": {
+   "sha256": "2cc2491dba135f1ae6ac9362df264dad401db9f38803847cbfd2e1ce8696039f",
+   "size": 790
+  },
+  "sources/80-frontend-design.md": {
+   "sha256": "7bc4e03e5f169d2a98ad4fb2bbbfa84fe67a41bc8bc6e461d970a9741ebf7ba9",
+   "size": 682
+  },
+  "sources/81-karpathy-behavioral.md": {
+   "sha256": "5af239f06cedf860e1f16e74faaf7f75242baf9d22fda9276d646a06f31ad06d",
+   "size": 695
+  },
+  "sources/82-gstack.md": {
+   "sha256": "dbb3f7e6814f8ccc41af5a808e23b1028e0016a92b461a8f73c1a1a871acd7a4",
+   "size": 560
+  },
+  "sources/83-get-shit-done.md": {
+   "sha256": "f2cb18d2a549a8003c9011a8e1e05604d1964a5ef8002ddd66743e2299f598a2",
+   "size": 584
+  },
+  "sources/84-best-skills-patterns.md": {
+   "sha256": "4958347a1bd6351eeac15f17bb636ed39038284af8b1e5ddd0bbdc565bb71bb8",
+   "size": 832
+  },
+  "sources/85-code-review-landscape.md": {
+   "sha256": "2f8fdfa4a58d3e462acde845d656485e867204700ccb2ad8bb5fd3fabcc09661",
+   "size": 722
+  },
+  "sources/86-skill-supply-chain-safety.md": {
+   "sha256": "9981737c8857308674fcc95b1442f7942db1310f3a5130025804cb2940689e52",
+   "size": 841
+  },
+  "sources/87-agent-video-skills.md": {
+   "sha256": "11dbcc98df5ce5f5eb28730105bdf4607e58b2690dde839d896d4f6664a7c2fb",
+   "size": 740
+  },
+  "sources/88-openfilm.md": {
+   "sha256": "60c7b2c5455bd0bc9a75cd8b6725101ad4e9a3b1ad15181c7baa85a5b11e8329",
+   "size": 705
+  },
+  "sources/89-autovideo-agent.md": {
+   "sha256": "486d8c2dd6c12bbfb1f6d60dd7db07bc45a5ad6b63d614f84a4c50ee3c8fc333",
+   "size": 708
+  },
+  "sources/90-super-video-maker.md": {
+   "sha256": "a04b1414e3bfd37169cd1a580a8d3bc4a27ab1995d59a795584e00c0f69849ea",
+   "size": 688
+  },
+  "sources/README.md": {
+   "sha256": "0374383d755bb44c316cbdb5378caeeb2d5b07562d12c832c1d5c6f145751b39",
+   "size": 7270
+  },
+  "sources/x1-anthropics-skills.md": {
+   "sha256": "f918f3f7c498044a53d3f9933ba6b8906244f9e97bdac0e3235b006045438b1f",
+   "size": 546
+  },
+  "sources/x2-masriyan-cybersecurity-skill.md": {
+   "sha256": "7ebf1dbcae5a2780ad99a2943de87bdd85e0949a85ea8723e0c6e847fe90b34b",
+   "size": 575
+  },
+  "sources/x3-education-agent-skills.md": {
+   "sha256": "9b2b464e42b70dd6e76208969fadc740475ed6841e9f7f9ea200823a87741ef1",
+   "size": 550
+  },
+  "sources/x4-google-drive-file.md": {
+   "sha256": "9a1225b39297ff1bb4fe5d68275a38c7572e088980221696a4d4c529ab24943d",
+   "size": 562
+  }
+ }
+}

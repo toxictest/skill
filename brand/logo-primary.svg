@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" width="420" height="96">
+  <defs>
+    <linearGradient id="ss-g" x1="0" y1="0" x2="96" y2="96">
+      <stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="ss-t" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0,0)">
+    <g stroke="url(#ss-g)" stroke-width="2.5" stroke-linecap="round" fill="none">
+      <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+      <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+      <path d="M48 48 L20 28"/>
+    </g>
+    <g fill="#22d3ee">
+      <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+      <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+      <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+      <circle cx="18" cy="27" r="5"/>
+    </g>
+    <circle cx="48" cy="48" r="11" fill="url(#ss-g)"/>
+    <circle cx="48" cy="48" r="4.5" fill="#0f1115"/>
+  </g>
+  <text x="112" y="62" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="38" font-weight="700" letter-spacing="-1">
+    <tspan fill="#e8eaf0">super</tspan><tspan fill="url(#ss-t)">-skill</tspan>
+  </text>
+</svg>

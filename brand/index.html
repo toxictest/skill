@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>super-skill — Brand Kit · EN · हिंदी · Hinglish</title>
+<style>
+  :root {
+    --violet:#7c3aed; --cyan:#22d3ee; --ink:#0f1115; --panel:#171a21;
+    --steel:#2a2f3a; --mist:#e8eaf0; --slate:#9aa0ae;
+    --green:#34d399; --amber:#fbbf24;
+    --grad:linear-gradient(135deg,#7c3aed,#22d3ee);
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;
+    background:var(--ink); color:var(--mist); line-height:1.6; padding:2rem 1.25rem;
+    background-image:
+      radial-gradient(ellipse 55% 35% at 85% -5%, rgba(124,58,237,.22), transparent),
+      radial-gradient(ellipse 45% 30% at 5% 105%, rgba(34,211,238,.10), transparent);
+  }
+  .wrap { max-width:1000px; margin:0 auto; }
+  header.top { display:flex; flex-wrap:wrap; gap:1rem; align-items:center;
+               justify-content:space-between; margin-bottom:2rem; }
+  .brand { display:flex; gap:.8rem; align-items:center; }
+  .brand svg { width:64px; height:64px; }
+  .brand h1 { font-size:1.7rem; letter-spacing:-.02em; }
+  .brand h1 span { background:var(--grad); -webkit-background-clip:text;
+                   background-clip:text; color:transparent; }
+  .brand small { display:block; color:var(--slate); font-size:.8rem; font-weight:400; }
+  .langs { display:flex; gap:.4rem; background:var(--panel);
+           border:1px solid var(--steel); border-radius:10px; padding:.3rem; }
+  .langs button { background:none; border:none; color:var(--slate); font-size:.85rem;
+                  padding:.45rem .9rem; border-radius:8px; cursor:pointer;
+                  font-family:inherit; }
+  .langs button.on { background:var(--violet); color:#fff; }
+  section { background:var(--panel); border:1px solid var(--steel);
+            border-radius:14px; padding:1.4rem 1.5rem; margin-bottom:1.2rem; }
+  h2 { font-size:.8rem; text-transform:uppercase; letter-spacing:.14em;
+       color:var(--slate); margin-bottom:1rem; }
+  h2 b { color:var(--cyan); font-weight:600; }
+  .grid { display:grid; gap:.9rem; }
+  .g2 { grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+  .g3 { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+  .g4 { grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); }
+  .tile { background:#10131a; border:1px solid var(--steel); border-radius:10px;
+          padding:1.2rem; display:flex; flex-direction:column; gap:.7rem;
+          align-items:center; justify-content:center; min-height:130px; text-align:center; }
+  .tile.light { background:#f4f4f6; color:#1a1d24; }
+  .tile .cap { font-size:.72rem; color:var(--slate); font-family:ui-monospace,monospace; }
+  .tile.light .cap { color:#6b7280; }
+  .swatch { border:1px solid var(--steel); border-radius:10px; overflow:hidden; }
+  .swatch .color { height:72px; }
+  .swatch .meta { padding:.6rem .7rem; font-size:.8rem; background:#10131a; }
+  .swatch .meta b { display:block; font-size:.85rem; }
+  .swatch .meta code { color:var(--cyan); font-size:.75rem; }
+  .tag { background:#10131a; border:1px solid var(--steel); border-radius:10px;
+         padding:1rem 1.1rem; }
+  .tag .lang-label { font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+                     color:var(--cyan); margin-bottom:.4rem; font-weight:600; }
+  .tag .big { font-size:1.15rem; font-weight:700; margin-bottom:.3rem; }
+  .tag .sub { color:var(--slate); font-size:.88rem; }
+  ul.checks { list-style:none; font-size:.92rem; }
+  ul.checks li { padding:.3rem 0 .3rem 1.6rem; position:relative; }
+  ul.checks li::before { position:absolute; left:0; }
+  ul.yes li::before { content:"✅"; }
+  ul.no li::before { content:"❌"; }
+  .type-demo .row { display:flex; gap:1rem; align-items:baseline;
+                    border-bottom:1px dashed var(--steel); padding:.55rem 0; }
+  .type-demo .row:last-child { border:none; }
+  .type-demo .lbl { width:130px; flex:none; color:var(--slate);
+                    font-size:.72rem; font-family:ui-monospace,monospace; }
+  .avatar { width:120px; height:120px; border-radius:50%; background:var(--grad);
+            display:flex; align-items:center; justify-content:center; }
+  .avatar svg { width:78px; height:78px; }
+  .banner { border:1px solid var(--steel); border-radius:10px; overflow:hidden;
+            display:flex; align-items:center; gap:1rem; background:#10131a;
+            padding:1rem 1.2rem; }
+  .banner .txt h3 { font-size:1.15rem; }
+  .banner .txt p { color:var(--slate); font-size:.85rem; }
+  .banner .thumb { width:86px; height:86px; border-radius:12px; object-fit:cover;
+                   border:1px solid var(--steel); flex:none; }
+  .hidden { display:none !important; }
+  footer { text-align:center; color:var(--slate); font-size:.78rem; margin-top:1.5rem; }
+  footer code { background:#10131a; border:1px solid var(--steel);
+                padding:.1rem .4rem; border-radius:6px; color:var(--cyan); }
+</style>
+</head>
+<body data-lang="en">
+<div class="wrap">
+
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 96 96" aria-label="super-skill icon">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="96" y2="96">
+        <stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#22d3ee"/>
+      </linearGradient></defs>
+      <g stroke="url(#g)" stroke-width="2.5" stroke-linecap="round" fill="none">
+        <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+        <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+        <path d="M48 48 L20 28"/>
+      </g>
+      <g fill="#22d3ee">
+        <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+        <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+        <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+        <circle cx="18" cy="27" r="5"/>
+      </g>
+      <circle cx="48" cy="48" r="11" fill="url(#g)"/>
+      <circle cx="48" cy="48" r="4.5" fill="#0f1115"/>
+    </svg>
+    <div>
+      <h1>super<span>-skill</span></h1>
+      <small data-en="Brand Kit — English · हिंदी · Hinglish"
+             data-hi="ब्रांड किट — अंग्रेज़ी · हिंदी · हिंग्लिश"
+             data-hing="Brand kit — English · Hindi · Hinglish">Brand Kit — English · हिंदी · Hinglish</small>
+    </div>
+  </div>
+  <div class="langs" role="tablist" aria-label="language">
+    <button data-set="en" class="on">English</button>
+    <button data-set="hi">हिंदी</button>
+    <button data-set="hing">Hinglish</button>
+  </div>
+</header>
+
+<!-- LOGOS -->
+<section>
+  <h2>1 · <b>Logo</b> — <span data-en="variations" data-hi="संस्करण" data-hing="variations">variations</span></h2>
+  <div class="grid g4">
+    <div class="tile">
+      <svg width="72" height="72" viewBox="0 0 96 96">
+        <use href="#mark"/>
+        <g stroke="url(#g)" stroke-width="2.5" stroke-linecap="round" fill="none">
+          <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+          <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+          <path d="M48 48 L20 28"/>
+        </g>
+        <g fill="#22d3ee">
+          <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+          <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+          <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+          <circle cx="18" cy="27" r="5"/>
+        </g>
+        <circle cx="48" cy="48" r="11" fill="url(#g)"/>
+        <circle cx="48" cy="48" r="4.5" fill="#0f1115"/>
+      </svg>
+      <span class="cap">logo-icon.svg</span>
+    </div>
+    <div class="tile">
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <svg width="46" height="46" viewBox="0 0 96 96">
+          <g stroke="url(#g)" stroke-width="2.5" stroke-linecap="round" fill="none">
+            <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+            <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+            <path d="M48 48 L20 28"/>
+          </g>
+          <g fill="#22d3ee">
+            <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+            <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+            <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+            <circle cx="18" cy="27" r="5"/>
+          </g>
+          <circle cx="48" cy="48" r="11" fill="url(#g)"/>
+          <circle cx="48" cy="48" r="4.5" fill="#0f1115"/>
+        </svg>
+        <b style="font-size:1.25rem">super<span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent">-skill</span></b>
+      </div>
+      <span class="cap">logo-primary.svg</span>
+    </div>
+    <div class="tile light">
+      <div style="display:flex;align-items:center;gap:.5rem;color:#111827">
+        <svg width="46" height="46" viewBox="0 0 96 96" style="color:#111827">
+          <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none">
+            <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+            <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+            <path d="M48 48 L20 28"/>
+          </g>
+          <g fill="currentColor">
+            <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+            <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+            <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+            <circle cx="18" cy="27" r="5"/><circle cx="48" cy="48" r="11"/>
+          </g>
+        </svg>
+        <b style="font-size:1.25rem">super-skill</b>
+      </div>
+      <span class="cap">logo-mono.svg · light bg</span>
+    </div>
+    <div class="tile" style="background:var(--violet)">
+      <div style="display:flex;align-items:center;gap:.5rem;color:#fff">
+        <svg width="46" height="46" viewBox="0 0 96 96" style="color:#fff">
+          <g stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none">
+            <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+            <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+            <path d="M48 48 L20 28"/>
+          </g>
+          <g fill="currentColor">
+            <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+            <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+            <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+            <circle cx="18" cy="27" r="5"/><circle cx="48" cy="48" r="11"/>
+          </g>
+        </svg>
+        <b style="font-size:1.25rem">super-skill</b>
+      </div>
+      <span class="cap" style="color:#ddd6fe">mono on violet</span>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section>
+  <h2>2 · <b>Color</b> — <span data-en="palette" data-hi="पैलेट" data-hing="palette">palette</span></h2>
+  <div class="grid g4">
+    <div class="swatch"><div class="color" style="background:#7c3aed"></div>
+      <div class="meta"><b>Router Violet</b><code>#7c3aed · primary</code></div></div>
+    <div class="swatch"><div class="color" style="background:#22d3ee"></div>
+      <div class="meta"><b>Route Cyan</b><code>#22d3ee · accent</code></div></div>
+    <div class="swatch"><div class="color" style="background:#0f1115"></div>
+      <div class="meta"><b>Ink</b><code>#0f1115 · background</code></div></div>
+    <div class="swatch"><div class="color" style="background:#171a21"></div>
+      <div class="meta"><b>Panel</b><code>#171a21 · surface</code></div></div>
+    <div class="swatch"><div class="color" style="background:#e8eaf0"></div>
+      <div class="meta"><b>Mist</b><code>#e8eaf0 · text</code></div></div>
+    <div class="swatch"><div class="color" style="background:#9aa0ae"></div>
+      <div class="meta"><b>Slate</b><code>#9aa0ae · muted</code></div></div>
+    <div class="swatch"><div class="color" style="background:#34d399"></div>
+      <div class="meta"><b>Verified Green</b><code>#34d399 · success</code></div></div>
+    <div class="swatch"><div class="color" style="background:#fbbf24"></div>
+      <div class="meta"><b>Gate Amber</b><code>#fbbf24 · warning</code></div></div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section class="type-demo">
+  <h2>3 · <b>Typography</b></h2>
+  <div class="row"><span class="lbl">display 700</span>
+    <span style="font-size:1.9rem;font-weight:700;letter-spacing:-.02em">super-skill — एक स्किल, हर काम</span></div>
+  <div class="row"><span class="lbl">heading 600</span>
+    <span style="font-size:1.15rem;font-weight:600">Route → Playbook → Deliver · रास्ता → प्लेबुक → वितरण</span></div>
+  <div class="row"><span class="lbl">body 400</span>
+    <span style="font-size:.98rem">One skill for every task. Evidence first, honest limits. / हर काम के लिए एक स्किल।</span></div>
+  <div class="row"><span class="lbl">mono</span>
+    <code style="font-family:ui-monospace,monospace;color:var(--cyan);font-size:.85rem">
+      python3 scripts/choose_playbook.py "ye CSV ka analysis karo"</code></div>
+</section>
+
+<!-- TAGLINES (always trilingual) -->
+<section>
+  <h2>4 · <b>Taglines</b> — EN · हिंदी · Hinglish</h2>
+  <div class="grid g3">
+    <div class="tag"><div class="lang-label">English</div>
+      <div class="big">One skill. Every task.</div>
+      <div class="sub">Give the task. The skill routes it.</div></div>
+    <div class="tag"><div class="lang-label">हिंदी</div>
+      <div class="big">एक स्किल। हर काम।</div>
+      <div class="sub">काम दो — रास्ता स्किल खुद चुनेगा।</div></div>
+    <div class="tag"><div class="lang-label">Hinglish</div>
+      <div class="big">Ek skill. Har kaam.</div>
+      <div class="sub">Seedha task do — skill khud choose karega.</div></div>
+  </div>
+</section>
+
+<!-- VOICE (language-switched) -->
+<section>
+  <h2>5 · <b>Voice &amp; Tone</b> — <span id="voice-lang">English</span></h2>
+  <div class="grid g3" id="voice-cards">
+    <div class="tag" data-voice="en">
+      <div class="lang-label">English</div>
+      <ul class="checks yes">
+        <li>Direct — answer first, evidence second</li>
+        <li>Cite every claim; label estimates</li>
+        <li>Honest about limits &amp; failures</li>
+        <li>Safety rules never joked with</li>
+      </ul>
+    </div>
+    <div class="tag" data-voice="hi">
+      <div class="lang-label">हिंदी</div>
+      <ul class="checks yes">
+        <li>सीधा — पहले उत्तर, फिर प्रमाण</li>
+        <li>हर दावे का स्रोत; अनुमान को अनुमान</li>
+        <li>सीमाएँ ईमानदारी से बताएँ</li>
+        <li>सुरक्षा नियमों में ढिलाई नहीं</li>
+      </ul>
+    </div>
+    <div class="tag" data-voice="hing">
+      <div class="lang-label">Hinglish</div>
+      <ul class="checks yes">
+        <li>Seedha — pehle answer, phir evidence</li>
+        <li>Har claim ka source; estimate = estimate</li>
+        <li>Limits aur failures clear batao</li>
+        <li>Safety rules mein koi comedy nahi</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DO / DON'T -->
+<section>
+  <h2>6 · <b>Logo Rules</b> — <span data-en="do &amp; don't" data-hi="करें व न करें" data-hing="do aur don't">do &amp; don't</span></h2>
+  <div class="grid g2">
+    <div>
+      <h3 style="font-size:.9rem;color:var(--green);margin-bottom:.5rem">DO ✅</h3>
+      <ul class="checks yes">
+        <li data-en="Keep clear space around the mark" data-hi="लोगो के चारों ओर साफ़ जगह छोड़ें" data-hing="Mark ke chaaron taraf clear space rakho">Keep clear space around the mark</li>
+        <li data-en="Gradient mark on dark backgrounds" data-hi="गहरे बैकग्राउंड पर ग्रेडिएंट लोगो" data-hing="Dark bg pe gradient mark">Gradient mark on dark backgrounds</li>
+        <li data-en="Mono version on light/print" data-hi="हल्के/प्रिंट पर मोनो वर्ज़न" data-hing="Light ya print pe mono version">Mono version on light/print</li>
+        <li data-en="Min size: icon 24px · lockup 120px" data-hi="न्यूनतम आकार: आइकन 24px · लॉकअप 120px" data-hing="Min size: icon 24px · lockup 120px">Min size: icon 24px · lockup 120px</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:.9rem;color:#f87171;margin-bottom:.5rem">DON'T ❌</h3>
+      <ul class="checks no">
+        <li data-en="Stretch, rotate, or recolor arbitrarily" data-hi="खिंचाव, घुमाव या मनमाना रंग न दें" data-hing="Stretch, rotate ya random color mat do">Stretch, rotate, or recolor arbitrarily</li>
+        <li data-en="Add shadows, outlines, or glow" data-hi="शैडो, आउटलाइन या ग्लो न जोड़ें" data-hing="Shadow, outline ya glow mat lagao">Add shadows, outlines, or glow</li>
+        <li data-en="Place on busy/photo backgrounds" data-hi="भीड़ या फ़ोटो बैकग्राउंड पर न रखें" data-hing="Busy ya photo bg pe mat rakho">Place on busy/photo backgrounds</li>
+        <li data-en="Recreate wordmark in another font" data-hi="दूसरे फ़ॉन्ट में वर्डमार्क न बनाएँ" data-hing="Doosre font mein wordmark mat banao">Recreate wordmark in another font</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section>
+  <h2>7 · <b>Social Assets</b></h2>
+  <div class="grid g2">
+    <div class="tile" style="min-height:170px">
+      <div class="avatar">
+        <svg viewBox="0 0 96 96">
+          <g stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none">
+            <path d="M48 48 L48 16"/><path d="M48 48 L76 28"/><path d="M48 48 L84 56"/>
+            <path d="M48 48 L70 80"/><path d="M48 48 L26 80"/><path d="M48 48 L12 56"/>
+            <path d="M48 48 L20 28"/>
+          </g>
+          <g fill="#fff">
+            <circle cx="48" cy="14" r="5"/><circle cx="78" cy="27" r="5"/>
+            <circle cx="86" cy="57" r="5"/><circle cx="72" cy="82" r="5"/>
+            <circle cx="24" cy="82" r="5"/><circle cx="10" cy="57" r="5"/>
+            <circle cx="18" cy="27" r="5"/><circle cx="48" cy="48" r="11"/>
+          </g>
+          <circle cx="48" cy="48" r="4.5" fill="#7c3aed"/>
+        </svg>
+      </div>
+      <span class="cap">avatar · 120×120</span>
+    </div>
+    <div class="banner">
+      <img class="thumb" src="../design/hero.jpg" alt="hero">
+      <div class="txt">
+        <h3>super-skill</h3>
+        <p data-en="One skill. Every task. · Zero setup."
+           data-hi="एक स्किल। हर काम। · शून्य सेटअप।"
+           data-hing="Ek skill. Har kaam. · Zero setup.">One skill. Every task. · Zero setup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  assets: <code>logo-icon.svg</code> <code>logo-primary.svg</code> <code>logo-mono.svg</code>
+  · guidelines: <code>brand-guidelines.md</code> · built with super-skill on Arena.ai
+</footer>
+</div>
+
+<script>
+  const labels = { en:"English", hi:"हिंदी", hing:"Hinglish" };
+  function setLang(l) {
+    document.body.dataset.lang = l;
+    document.querySelectorAll("[data-en]").forEach(el => {
+      el.textContent = el.dataset[l] || el.dataset.en;
+    });
+    document.querySelectorAll(".langs button").forEach(b =>
+      b.classList.toggle("on", b.dataset.set === l));
+    // voice: highlight active language card
+    document.querySelectorAll("[data-voice]").forEach(c =>
+      c.style.borderColor = c.dataset.voice === l ? "var(--violet)" : "var(--steel)");
+    document.getElementById("voice-lang").textContent = labels[l];
+  }
+  document.querySelectorAll(".langs button").forEach(b =>
+    b.addEventListener("click", () => setLang(b.dataset.set)));
+  setLang("en");
+</script>
+</body>
+</html>
