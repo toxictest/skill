@@ -30,6 +30,9 @@ video-studio/
     ├── vs_render.py   ← manifest → real MP4 (Ken Burns, xfade, titles, BGM, loudnorm)
     ├── vs_qc.py       ← decode + loudness + silence + subtitle gate → QC.md
     ├── vs_thumb.py    ← 1280x720 thumbnail with title card
+    ├── vs_slides.py   ← teacher-style whiteboard slides from a JSON spec (hook/list/grid/blocks/summary)
+    ├── vs_audio.py    ← normalize narration (mp3/other → wav) + write real durations into the manifest
+    ├── ls_series.py   ← plan a multi-day educational Reels series (curriculum → schedule + episode scaffolds)
     └── vs_selftest.py ← hermetic end-to-end pipeline test (run before shipping)
 ```
 
