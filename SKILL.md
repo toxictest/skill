@@ -96,6 +96,11 @@ If nothing matches, run the Universal workflow with your best judgment.
   already tested — run these before writing one-off code). Optional deps
   (video/office/chart helpers) install with `pip install -r requirements.txt`;
   scripts that need them print the exact install hint if missing:
+- **Integrated skill packs** (same repo, auto-route on topic):
+  - `video-studio/` — REAL video creation end to end (see its SKILL.md)
+  - `youtube-skills/` — 11 channel skills (script hooks, title/thumb
+    linting, retention, chapters, viral research; upstream MIT)
+  - `instagram-skills/` — Instagram pack (captions, Reels, grid)
 
   | Script | Playbook | Purpose |
   |---|---|---|

@@ -56,7 +56,29 @@ script (per-scene narration text)
 - [ ] `youtube_seo.py` output pasted (title char count ≤65)
 - [ ] File sizes sane (<200MB target for 1080p shorts-length content)
 
-## 5. Bundled scripts (all tested — see SKILL.md §4)
+## 5. Channel-level skills — integrated pack (youtube-skills/)
+
+For everything AFTER a video exists (scripting, packaging, retention,
+growth), the integrated pack at `youtube-skills/` (upstream:
+Jakeschincariol/youtube-agent-skill, MIT) is the primary toolkit — 11
+skills, all verified working in this repo:
+
+| Need | Skill | Quick tool |
+|---|---|---|
+| Script + hook before recording | `yt-script` | `hookscore.py --hook "..."` |
+| Title + thumbnail as one pairing | `yt-package` | `title.py --title "..." --thumb "..."` |
+| Cut a transcript / find dead air | `yt-edit` | `deadair.py` |
+| Read retention export | `yt-retention` | `retention.py` |
+| Chapters from transcript | `yt-chapters` | `chapters.py transcript.srt --target 8` |
+| Niche research ranked by outlier | `yt-viral` | `swipe.py` |
+| Comment triage + replies | `yt-comment` | — |
+| Weekly plan, Shorts finder, SEO text, channel audit | `yt-plan`, `yt-shorts`, `yt-seo`, `yt-audit` | — |
+
+All skills write — nothing publishes. Voice profile: keep `templates/voice.md`
+from the upstream repo (or upstream `templates/voice.md` copied to
+`~/.claude/youtube/voice.md`) and point the agent at it.
+
+## 6. Bundled scripts (all tested — see SKILL.md §4)
 
 | Script | Job |
 |---|---|

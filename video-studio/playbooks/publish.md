@@ -25,12 +25,21 @@ python3 scripts/vs_thumb.py video.mp4 --title "Hook line (<45 chars)" \
 Keep title big, ≤2 lines, no tiny text. Grab the most representative frame
 (`--at` to choose manually).
 
-## 4. YouTube SEO kit (reuse super-skill)
+## 4. YouTube SEO kit (integrated yt-skills, reuse super-skill)
+Preferred — the integrated channel pack:
+```bash
+# title + thumbnail as ONE linted pairing
+python3 ../youtube-skills/yt-package/title.py --title "..." --thumb "..."
+# description/tags/SEO text
+# -> use yt-seo skill (and yt-chapters for timestamps from transcript.srt)
+```
+Quick alternative (one-shot kit):
 ```bash
 python3 ../super-skill/scripts/youtube_seo.py "topic" --clips 3 --out seo.md
 ```
-Then merge: pick the strongest title from `seo.md`, keep tags ≤ 10,
-write the description with timestamps matching the scenes.
+Then merge: pick the strongest title from `seo.md` (also check it against
+`yt-package/title.py`), keep tags ≤ 10, write the description with
+timestamps matching the scenes.
 
 ## 5. Platform specs (sanity targets)
 | Platform | Resolution | Max length (typical free) | Notes |

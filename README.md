@@ -61,6 +61,26 @@ Full workflow: `video-studio/SKILL.md` + `video-studio/playbooks/`
 (`pipeline.md`, `platforms.md` — 2026 footage/voice/music sourcing research,
 `publish.md`).
 
+## 📺 youtube-skills — 11 channel skills (integrated + installed)
+
+Integrated from [Jakeschincariol/youtube-agent-skill](https://github.com/jakeschincariol/youtube-agent-skill)
+(MIT, up to date): script hooks scored off 21 formulas, title+thumbnail
+linting as one pairing, transcript edit lists, retention reader, chapters,
+viral research, comment triage, weekly planning, channel audit. All tools
+verified working; see `youtube-skills/README.md`.
+
+## 📸 instagram-skills — caption, Reels, grid
+
+A focused Instagram pack in the same format: hook-first captions + hashtag
+linting, Reels spec validation with safe-zone cover extraction, cohesive
+feed/carousel planning. See `instagram-skills/README.md`.
+
+## 📦 Install
+
+Everything is installed under `.claude/skills/` (yt-* + ig-*) with the voice
+template at `.claude/youtube/voice.md` — see `INSTALL.md` for Claude Code,
+plugin and runtime options.
+
 ## Verify (before shipping any change)
 
 ```bash
